@@ -1,0 +1,26 @@
+{
+  "name": "offergenerator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RadekJ87/OfferGenerator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RadekJ87/OfferGenerator/issues"
+  },
+  "homepage": "https://github.com/RadekJ87/OfferGenerator#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.1",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
