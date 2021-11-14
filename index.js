@@ -3,6 +3,7 @@ const hbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const { homeRouter } = require('./routers/home');
 const { offerRouter } = require('./routers/offer');
+const db = require('./utils/db');
 
 const app = express();
 
