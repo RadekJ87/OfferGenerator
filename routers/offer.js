@@ -3,7 +3,8 @@ const offerRouter = express.Router();
 
 offerRouter
     .get('/', (req, res) => {
-        res.send('Lista ofert');
+        // res.send('Lista ofert');
+        res.render('offer/list-all');
     })
     .get('/:id', (req, res) => {
         res.send('pojedyncza oferta')
