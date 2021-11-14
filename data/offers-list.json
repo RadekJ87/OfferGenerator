@@ -1,0 +1,39 @@
+[
+  {
+    "mainID": "1",
+    "projectNumber": "200400",
+    "customer": "Gispen",
+    "products": [
+      {
+        "innerID": "1",
+        "description": "Frame 1180",
+        "quantity": "30",
+        "price": "2"
+      },
+      {
+        "innerID": "2",
+        "description": "Leg HV 800",
+        "quantity": "100",
+        "price": "14"
+      }
+    ]
+  },
+  {
+    "mainID": "2",
+    "projectNumber": "312600",
+    "customer": "Ahrend",
+    "products": [
+      {
+        "innerID": "1",
+        "description": "Plate",
+        "quantity": "320",
+        "price": "234"
+      },
+      {
+        "innerID": "2",
+        "description": "Pipe",
+        "quantity": "2",
+        "price": "123"
+      }
+    ]
+  },
