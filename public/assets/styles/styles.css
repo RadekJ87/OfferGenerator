@@ -6,6 +6,7 @@
 
 body{
     background-color: #C0C0C0;
+    font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
 h1{
@@ -34,4 +35,69 @@ h1{
     position:absolute;
     right:20px;
     top: 50px;
+}
+
+/* list-all.hbs*/
+.offers-list-container{
+    width: 40%;
+    text-align: center;
+}
+.offers-list-table{
+    margin: 20px 0 0 20px;
+    border: solid 2px black;
+    font-size: 28px;
+    width: 100%;
+}
+
+thead{
+    background-color: ivory;
+}
+
+
+/* list-one.hbs*/
+.offer-single-container{
+    width: 96%;
+    margin: 0 2%;
+    text-align: left;
+}
+
+.offer-single-table{
+    margin: 20px 0 0 20px;
+    border: solid 2px black;
+    font-size: 28px;
+    width: 100%;
+}
+.offer-single-table tr{
+    display: flex;
+}
+.offer-single-table th{
+    border: 2px solid black;
+    flex-grow: 1;
+}
+
+.offer-single-table th:nth-child(2n){
+    text-align: center;
+    color:firebrick;
+}
+
+.offer-single-table .id,.customer,.project{
+    padding-left: 7px;
+}
+
+
+/* go-home.hbs*/
+.home{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.home a{
+    color: darkmagenta;
+    font-size: 22px;
+    transition: .5s;
+}
+a:hover{
+    color: red;
+    font-size: 28px;
 }

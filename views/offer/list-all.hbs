@@ -1,1 +1,24 @@
-<h1>Lista klientów list-all</h1>
+<div class="offers-list-container">
+    <h1>Lista ofert -> view 'list-all'</h1>
+    <table class="offers-list-table">
+        <thead>
+        <tr>
+            <th>Numer</th>
+            <th>Klient</th>
+            <th>Projekt</th>
+            <th>Szczegóły</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each offers}}
+            <tr>
+                <td>{{this.mainID}}</td>
+                <td>{{this.customer}}</td>
+                <td>{{this.projectNumber}}</td>
+                <td><a href="/offer/{{this.mainID}}/">Przejdź</a></td>
+            </tr>
+        {{/each}}
+
+        </tbody>
+    </table>
+</div>

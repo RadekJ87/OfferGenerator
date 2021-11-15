@@ -3,7 +3,7 @@ const hbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const { homeRouter } = require('./routers/home');
 const { offerRouter } = require('./routers/offer');
-const db = require('./utils/db');
+const {db} = require('./utils/db');
 
 const app = express();
 
@@ -20,8 +20,13 @@ app.engine('.hbs', hbs.engine({
 app.set('view engine', '.hbs');
 
 
-app.use('/', homeRouter);
-app.use('/offer', offerRouter);
+// app.use('/', homeRouter);
+// app.use('/offer', offerRouter);
+
+app.get('/test', (req, res) => {
+    // res.send(db.getSingleData('1'));
+    res.send(db.getAllProductFromOffer('1'));
+});
 
 
 app.listen(3000, 'localhost', () => {
