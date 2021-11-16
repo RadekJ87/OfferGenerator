@@ -8,13 +8,15 @@
         "innerID": "1",
         "description": "Frame 1180",
         "quantity": "30",
-        "price": "2"
+        "price": "2",
+        "comment": "transport cost included"
       },
       {
         "innerID": "2",
         "description": "Leg HV 800",
         "quantity": "100",
-        "price": "14"
+        "price": "14",
+        "comment": "paint black gloss"
       }
     ]
   },

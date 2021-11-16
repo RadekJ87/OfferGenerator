@@ -20,12 +20,12 @@ app.engine('.hbs', hbs.engine({
 app.set('view engine', '.hbs');
 
 
-// app.use('/', homeRouter);
-// app.use('/offer', offerRouter);
+app.use('/', homeRouter);
+app.use('/offer', offerRouter);
 
 app.get('/test', (req, res) => {
     // res.send(db.getSingleData('1'));
-    res.send(db.getAllProductFromOffer('1'));
+    res.send(db.getAllProductsFromOffer('1'));
 });
 
 

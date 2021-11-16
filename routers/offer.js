@@ -15,19 +15,23 @@ offerRouter
         // res.send('pojedyncza oferta');
         // console.log(db.getSingleData(req.params.id));
         res.render('offer/list-one', {
-            //offer jako pojedyncza oferta, products jako elementy wyceny - metoda getAllProductFromOffer
             offer: db.getSingleData(req.params.id),
+            products: db.getAllProductsFromOffer(req.params.id),
         });
     })
     .post('/', (req, res) => {
-        res.send('zapisano do bazy');
+        res.send('zapisano oferte do bazy');
     })
     .put('/:id', (req, res) => {
-        res.send('zaktualizowano');
+        res.send('zaktualizowano oferte');
     })
     .delete('/:id', (req, res) => {
-        res.send('usunieto');
+        res.send('usunieto oferte');
     })
+    .delete('/:id/:product', (req, res) => {
+        res.send('usunieto produkt z oferty');
+    })
+
 
 
 module.exports = {

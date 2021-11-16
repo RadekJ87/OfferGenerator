@@ -1,6 +1,6 @@
 <div class="offer-single-container">
     <h1>Szczegóły oferty -> view 'list-one'</h1>
-    <table class="offer-single-table">
+    <table class="offer-single-header">
         <thead>
         <tr>
             <th class="id">Numer oferty</th>
@@ -11,8 +11,35 @@
             <th>{{offer.projectNumber}}</th>
         </tr>
         </thead>
+    </table>
 
-        <tbody></tbody>
+    <table class="offer-single-products">
+        <thead>
+        <tr>
+            <th>Lp.</th>
+            <th>Opis</th>
+            <th>Ilość</th>
+            <th>Cena</th>
+            <th>Komentarz</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each products}}
+            <tr>
+                <td>{{this.innerID}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.price}} €/pc</td>
+                <td>{{this.comment}}</td>
+                <td>
+                    <form method="POST" action="/offer/{{../offer.mainID}}/{{this.innerID}}?_method=DELETE">
+                        <button type="submit">Usuń</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
     </table>
 </div>
 {{> go-home}}

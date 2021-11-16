@@ -61,27 +61,57 @@ thead{
     text-align: left;
 }
 
-.offer-single-table{
+.offer-single-header, .offer-single-products{
     margin: 20px 0 0 20px;
     border: solid 2px black;
     font-size: 28px;
-    width: 100%;
+    /*z preview*/
+    width: 60%;
+    /*width: 100%; be z preview*/
 }
-.offer-single-table tr{
+.offer-single-header tr{
     display: flex;
 }
-.offer-single-table th{
+.offer-single-header th,.offer-single-products th,.offer-single-products td{
     border: 2px solid black;
+}
+.offer-single-header th{
     flex-grow: 1;
 }
 
-.offer-single-table th:nth-child(2n){
+.offer-single-products th{
+    text-align: center;
+}
+
+tbody td{
+    background-color:#ffffff;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.offer-single-header th:nth-child(2n){
     text-align: center;
     color:firebrick;
 }
 
-.offer-single-table .id,.customer,.project{
+.id,.customer,.project{
     padding-left: 7px;
+}
+
+.header-products{
+    margin-top: 20px;
+}
+
+td button{
+    background-color: #ff9988;
+    width: 100%;
+    height:50px;
+    transition: .5s;
+}
+
+td button:hover{
+    background-color: firebrick;
+    cursor: pointer;
 }
 
 

@@ -15,17 +15,25 @@ class Db {
         // console.log(this._data[0]);
     }
 
+    //utwórz ofertę
+    createOffer(obj){
+
+    }
+    //dodaj produkty do istniejącej oferty
+    addProduct(id, obj){}
+
     getAllData() {
         return this._data;
     }
-
+   //tu można zrobić chyba jedna metode
    getSingleData(mainID) {
        return this._data.find((oneClient) => oneClient.mainID === mainID);
    }
 
-   getAllProductFromOffer(mainID) {
-        const offer = this._data.find((oneClient) => oneClient.mainID === mainID);
-        return offer.products;
+   getAllProductsFromOffer(mainID) {
+        return this.getSingleData(mainID).products;
+        // return (this._data.find((oneClient) => oneClient.mainID === mainID)).products;
+        //return offer.products;
     }
 
 }
