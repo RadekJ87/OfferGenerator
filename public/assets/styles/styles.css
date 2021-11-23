@@ -1,15 +1,15 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #C0C0C0;
     font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
-h1{
+h1 {
     margin-left: 20px;
 }
 
@@ -22,46 +22,70 @@ h1{
     /*align-items: center;*/
 }
 
-.header img{
-    position:absolute;
+div.disabled {
+    display: none;
+}
+
+.header img {
+    position: absolute;
     left: 10px;
     top: 30px;
-    width:240px;
+    width: 240px;
     height: 100px;
 }
 
-.header h1{
+.header h1 {
     font-size: 36px;
-    position:absolute;
-    right:20px;
+    position: absolute;
+    right: 20px;
     top: 50px;
 }
 
 /* list-all.hbs*/
-.offers-list-container{
+.offers-list-container {
     width: 40%;
     text-align: center;
 }
-.offers-list-table{
+
+.offers-list-table {
     margin: 20px 0 0 20px;
     border: solid 2px black;
     font-size: 28px;
     width: 100%;
 }
 
-thead{
+thead {
     background-color: ivory;
 }
 
+.button-new-offer {
+    width: 200px;
+    margin: 30px 0 0 20px;
+}
+
+.button-new-offer button, .button-standard button {
+    background-color: #ffffff;
+    border: solid 2px black;
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 22px;
+    transition: .4s;
+}
+
+.button-new-offer button:hover, .button-standard button:hover {
+    color: #ffffff;
+    background-color: firebrick;
+    cursor: progress;
+}
 
 /* list-one.hbs*/
-.offer-single-container{
+.offer-single-container {
     width: 96%;
     margin: 0 2%;
     text-align: left;
 }
 
-.offer-single-header, .offer-single-products{
+.offer-single-header, .offer-single-products {
     margin: 20px 0 0 20px;
     border: solid 2px black;
     font-size: 28px;
@@ -69,65 +93,117 @@ thead{
     width: 60%;
     /*width: 100%; be z preview*/
 }
-.offer-single-header tr{
+
+.offer-single-header tr {
     display: flex;
 }
-.offer-single-header th,.offer-single-products th,.offer-single-products td{
+
+.offer-single-header th, .offer-single-products th, .offer-single-products td {
     border: 2px solid black;
 }
-.offer-single-header th{
+
+.offer-single-header th {
     flex-grow: 1;
 }
 
-.offer-single-products th{
+.offer-single-products th {
     text-align: center;
 }
 
-tbody td{
-    background-color:#ffffff;
+tbody td {
+    background-color: #ffffff;
     text-align: center;
     font-family: 'Roboto', sans-serif;
 }
 
-.offer-single-header th:nth-child(2n){
+.offer-single-header th:nth-child(2n) {
     text-align: center;
-    color:firebrick;
+    color: firebrick;
 }
 
-.id,.customer,.project{
+.id, .customer, .project {
     padding-left: 7px;
 }
 
-.header-products{
+.header-products {
     margin-top: 20px;
 }
 
-td button{
+td button {
     background-color: #ff9988;
     width: 100%;
-    height:50px;
+    height: 50px;
     transition: .5s;
 }
 
-td button:hover{
+td button:hover {
     background-color: firebrick;
     cursor: pointer;
 }
 
+.button-standard {
+    width: 250px;
+    margin: 30px 0 0 2%;
+}
+
+.button-standard button {
+    margin-left: 8%;
+}
+
+/* print-preview.hbs */
+@media print {
+    .print-preview-container, page {
+        size: A4;
+        margin: 0;
+        box-shadow: 0;
+    }
+}
+
+.print-preview-container {
+    position: relative;
+    height: calc(100vh - 160px);
+    background: rgb(204, 204, 204);
+}
+
+page {
+    position: absolute;
+    background: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+
+page[size="A4"] {
+    width: calc(21cm * 0.65);
+    height: calc(29.7cm * 0.65);
+}
+
+/*footer*/
+.print-preview-footer {
+    font-size: 16px;
+    line-height: 16px;
+    height: 20px;
+    width: 100%;
+    background-color: #C0C0C0;
+    text-align: center;
+}
 
 /* go-home.hbs*/
-.home{
+.home {
     position: absolute;
     bottom: 10px;
     left: 10px;
 }
 
-.home a{
+.home a {
     color: darkmagenta;
     font-size: 22px;
     transition: .5s;
 }
-a:hover{
+
+a:hover {
     color: red;
     font-size: 28px;
 }
