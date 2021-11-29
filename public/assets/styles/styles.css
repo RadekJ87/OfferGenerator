@@ -9,15 +9,17 @@ body {
     font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
-h1 {
+h1.important {
     margin-left: 20px;
+    color: white;
 }
 
 .header {
     position: relative;
     width: 100%;
-    height: 140px;
-    margin-bottom: 50px;
+    height: 100px;
+    /*margin-bottom: 50px;*/
+    background-color: black;
     /*display: flex;*/
     /*align-items: center;*/
 }
@@ -28,23 +30,25 @@ div.disabled {
 
 .header img {
     position: absolute;
-    left: 10px;
-    top: 30px;
-    width: 240px;
-    height: 100px;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 226px;
+    height: 90px;
 }
 
 .header h1 {
-    font-size: 36px;
+    font-size: 32px;
     position: absolute;
-    right: 20px;
-    top: 50px;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* list-all.hbs*/
 .offers-list-container {
+    margin-top: 20px;
     width: 40%;
-    text-align: center;
 }
 
 .offers-list-table {
@@ -81,7 +85,7 @@ thead {
 /* list-one.hbs*/
 .offer-single-container {
     width: 96%;
-    margin: 0 2%;
+    margin: 20px 2%;
     text-align: left;
 }
 
@@ -150,45 +154,6 @@ td button:hover {
     margin-left: 8%;
 }
 
-/* print-preview.hbs */
-@media print {
-    .print-preview-container, page {
-        size: A4;
-        margin: 0;
-        box-shadow: 0;
-    }
-}
-
-.print-preview-container {
-    position: relative;
-    height: calc(100vh - 160px);
-    background: rgb(204, 204, 204);
-}
-
-page {
-    position: absolute;
-    background: white;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
-}
-
-page[size="A4"] {
-    width: calc(21cm * 0.65);
-    height: calc(29.7cm * 0.65);
-}
-
-/*footer*/
-.print-preview-footer {
-    font-size: 16px;
-    line-height: 16px;
-    height: 20px;
-    width: 100%;
-    background-color: #C0C0C0;
-    text-align: center;
-}
 
 /* go-home.hbs*/
 .home {
@@ -207,3 +172,117 @@ a:hover {
     color: red;
     font-size: 28px;
 }
+
+/* print-preview.hbs */
+@media print {
+    .print-preview-container, page {
+        size: A4;
+        margin: 0;
+        box-shadow: 0;
+    }
+}
+
+.print-preview-container {
+    position: relative;
+    height: calc(100vh - 130px);
+    background: rgb(204, 204, 204);
+}
+
+page {
+    position: absolute;
+    background: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+
+page[size="A4"] {
+    width: calc(21cm * 0.7);
+    height: calc(29.7cm * 0.7);
+}
+
+.header-print {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    background-color: #ff9988;
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+}
+
+.header-print > * {
+    position: absolute;
+    top: 15px;
+}
+
+.header-print > h1 {
+    left: 20px;
+    font-size: 12px;
+}
+
+.header-print > img {
+    right: 20px;
+    width: 30%;
+    /*height: 20%;*/
+}
+.header-print > p {
+    left: 20px;
+    top: 100px;
+    font-size: 10px;
+}
+
+.seller-customer-data{
+    position: relative;
+    top: 0;
+}
+
+
+
+
+
+
+/*footer*/
+.print-preview-footer {
+    position: relative;
+    bottom: 0;
+    font-size: 16px;
+    line-height: 30px;
+    height: 30px;
+    width: 100%;
+    background-color: #C0C0C0;
+    text-align: center;
+
+}
+
+.print-preview-footer > button {
+    font-family: 'Montserrat', 'Roboto', sans-serif;
+    font-weight: bold;
+    width: 100px;
+    font-size: 16px;
+    transition: all 0.7s;
+    transition-timing-function: cubic-bezier(0.1, 0.25, 0.25, 0.1);
+
+}
+
+.print-preview-footer > button:hover {
+    background-color: red;
+    color: white;
+    width: 140px;
+    cursor: progress;
+}
+
+.print-preview-footer a {
+    margin-right: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transform: none;
+}
+
+.print-preview-footer a:hover {
+    color: red;
+    font-size: 16px;
+}
+
