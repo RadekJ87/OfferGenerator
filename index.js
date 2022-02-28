@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const { homeRouter } = require('./routers/home');
 const { offerRouter } = require('./routers/offer');
 const {db} = require('./utils/db');
+const {handlebarsHelpers} = require("./utils/handlebars-helpers");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({
 
 app.engine('.hbs', hbs.engine({
     extname: '.hbs',
+    helpers: handlebarsHelpers,
 }));
 app.set('view engine', '.hbs');
 

@@ -1,1 +1,7 @@
 //do json dodac city, street, zip code, dodac tylko do hbs print preview
+
+
+1. Widok ofert
+   a) wywietlanie numeru oferty na podstawie indeksu numeru tablicy a nie id - ok,
+   b) przerobic id na uuid,
+

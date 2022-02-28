@@ -12,7 +12,8 @@
         <tbody>
         {{#each offers}}
             <tr>
-                <td>{{this.mainID}}</td>
+<!--                <td>{{this.mainID}}</td>-->
+                <td>{{listAllIndex @index}}</td>
                 <td>{{this.customer}}</td>
                 <td>{{this.projectNumber}}</td>
                 <td><a href="/offer/{{this.mainID}}/">Przejdź</a></td>
