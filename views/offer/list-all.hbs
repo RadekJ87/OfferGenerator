@@ -7,6 +7,7 @@
             <th>Klient</th>
             <th>Projekt</th>
             <th>Szczegóły</th>
+            <th>Modyfikuj</th>
         </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
                 <td>{{this.customer}}</td>
                 <td>{{this.projectNumber}}</td>
                 <td><a href="/offer/{{this.mainID}}/">Przejdź</a></td>
+                <td><a href="/offer/modify/{{this.mainID}}/">Zmień</a></td>
             </tr>
         {{/each}}
         </tbody>

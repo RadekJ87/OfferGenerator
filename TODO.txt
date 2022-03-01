@@ -2,6 +2,24 @@
 
 
 1. Widok ofert
+   Widok główny:
+   - lista ofert - ok, list-all
+   - tworzenie nowej oferty -ok,
+      a) dopracowanie podwidoku - todo,  create new offer
+
+2. Widok oferty:
+    - wyswietlanie produktów - ok, list-one
+      a) podglad wydruku, todo print-preview
+    - modyfikacja listy, edit-one
+        a) formularz dodawanie, todo
+        b) usuwanie, todo
+        c) aktualizowanie - nie obowiązkowe
+
+
+
+   Kod:
    a) wywietlanie numeru oferty na podstawie indeksu numeru tablicy a nie id - ok,
-   b) przerobic id na uuid,
+   b) przerobic id na uuid - ok,
+   c) product ma miec id generowane na podstawie miejsca w tablicy. todo
+      Metoda pobierajaca wiekosc tablicy + 1
 

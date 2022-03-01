@@ -38,4 +38,11 @@
         "price": "123"
       }
     ]
-  }]
+  },
+  {
+    "mainID": "b5fbf4ca-8476-4417-b714-9f26436a9591",
+    "projectNumber": "333444",
+    "customer": "Fiction Factory",
+    "products": []
+  }
+]

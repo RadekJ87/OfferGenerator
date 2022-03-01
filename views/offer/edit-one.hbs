@@ -1,0 +1,84 @@
+<div class="offer-single-container">
+    <h1 class="important">Edytuj ofertę -> view 'edit-one'</h1>
+    <table class="offer-single-header">
+        <thead>
+        <tr>
+            <th class="customer">Klient</th>
+            <th>{{offer.customer}}</th>
+            <th class="project">Projekt</th>
+            <th>{{offer.projectNumber}}</th>
+        </tr>
+        </thead>
+    </table>
+
+    <table class="offer-single-products">
+        <thead>
+        <tr>
+            <th>Lp.</th>
+            <th>Opis</th>
+            <th>Ilość</th>
+            <th>Cena</th>
+            <th>Komentarz</th>
+            <th>Akcja</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each products}}
+            <tr>
+                <td>{{this.innerID}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.price}} €/pc</td>
+                <td>{{this.comment}}</td>
+                <td>
+                    <form method="POST" action="/offer/{{../offer.mainID}}/{{this.innerID}}?_method=DELETE">
+                        <button type="submit">Usuń</button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <br>
+
+    <h1 class="important">Dodaj produkt do oferty</h1>
+    <form action="/offer/modify/{{offer.mainID}}" method="POST">
+        <label>
+            <p>
+                Opis
+            </p>
+            <p>
+                <input type="text" name="description">
+            </p>
+        </label>
+        <label>
+            <p>
+                Ilość
+            </p>
+            <p>
+                <input type="number" name="quantity">
+            </p>
+        </label>
+        <label>
+            <p>
+                Cena
+            </p>
+            <p>
+                <input type="number" name="price">
+            </p>
+        </label>
+        <label>
+            <p>
+                Komentarz
+            </p>
+            <p>
+                <input type="text" name="comment" maxlength="40">
+            </p>
+        </label>
+        <button type="submit">Dodaj</button>
+    </form>
+</div>
+
+<!--<form class="button-standard" method="GET" action="/offer/{{offer.mainID}}/preview"><button type="submit">Podgląd wydruku</button></form>-->
+
+{{> go-home}}

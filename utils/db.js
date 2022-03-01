@@ -29,31 +29,52 @@ class Db {
         const file = this._data;
         file.push(newQuotation);
         console.log(file);
+        //dodaj zapis
 
 
-        // wywala bo dopisuje
-        // await appendFile(this.fileName, JSON.stringify(newQuotation));
+        await writeFile(this.fileName, JSON.stringify(file));
     }
 
-    //dodaj produkty do istniejącej oferty
-    addProduct(id, obj) {
+    //dodaj produkty do istniejącej oferty - metoda przyjmuje id oraz obiekt, musi wiedziec ile jest lementów w tablicy products
+    addProduct(mainID, obj) {
+        //pobierz dane oferty
+        //dodaj do obietu
+        //utworz id dla produkty wykorzystujac metode sprawdzajaca obecna wielkosc tablicy produktow dla pojedynczej oferty
+        //howManyProductsContainsOffer
+        const currentOffer = this.getSingleData(mainID);
+        const productID = this.howManyProductsContainsOffer(mainID) + 1; //rzutowanie na number?
+        console.log(productID);
+
+        //todo
+        //dostan sie do tablicy produktow i wsztyknij utworzony obiekt na postawie danych z body
+
+        console.log('Obecna zawartość oferty:', currentOffer);
+        console.log('Dane z body:', obj);
     }
 
+    //pobierz cala liste
     getAllData() {
         return this._data;
     }
 
-    //tu można zrobić chyba jedna metode
+    //pobierz pojedynczy rekord
     getSingleData(mainID) {
         return this._data.find((oneClient) => oneClient.mainID === mainID);
     }
 
+    //pobierz produkty z pojedynczego rekordu
     getAllProductsFromOffer(mainID) {
         return this.getSingleData(mainID).products;
         // return (this._data.find((oneClient) => oneClient.mainID === mainID)).products;
         //return offer.products;
     }
-
+    //pobierz ilosc produktow ile obecnie jest w pojedynczej ofercie
+    howManyProductsContainsOffer(mainID){
+        const qty = this.getAllProductsFromOffer(mainID);
+        return qty.length;
+        // console.log('Ilość produtków', qty);
+        // console.log(qty.length);
+    }
 }
 
 const db = new Db('offers-list.json');

@@ -19,7 +19,7 @@
             <th>Ilość</th>
             <th>Cena</th>
             <th>Komentarz</th>
-            <th>Akcja</th>
+<!--            <th>Akcja</th>-->
         </tr>
         </thead>
         <tbody>
@@ -30,11 +30,11 @@
                 <td>{{this.quantity}}</td>
                 <td>{{this.price}} €/pc</td>
                 <td>{{this.comment}}</td>
-                <td>
-                    <form method="POST" action="/offer/{{../offer.mainID}}/{{this.innerID}}?_method=DELETE">
-                        <button type="submit">Usuń</button>
-                    </form>
-                </td>
+<!--                <td>-->
+<!--                    <form method="POST" action="/offer/{{../offer.mainID}}/{{this.innerID}}?_method=DELETE">-->
+<!--                        <button type="submit">Usuń</button>-->
+<!--                    </form>-->
+<!--                </td>-->
             </tr>
         {{/each}}
         </tbody>
