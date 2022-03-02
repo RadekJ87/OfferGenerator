@@ -19,7 +19,7 @@ class Db {
 
     //utwórz ofertę
     async createNewRFQ(obj) {
-       const {customer, projectNumber} = obj;
+        const {customer, projectNumber} = obj;
         const newQuotation = {
             mainID: uuid(),
             projectNumber: projectNumber,
@@ -36,20 +36,20 @@ class Db {
     }
 
     //dodaj produkty do istniejącej oferty - metoda przyjmuje id oraz obiekt, musi wiedziec ile jest lementów w tablicy products
-    addProduct(mainID, obj) {
-        //pobierz dane oferty
-        //dodaj do obietu
-        //utworz id dla produkty wykorzystujac metode sprawdzajaca obecna wielkosc tablicy produktow dla pojedynczej oferty
-        //howManyProductsContainsOffer
-        const currentOffer = this.getSingleData(mainID);
+    async addProduct(mainID, obj) {
+        // metoda pobiera tablice produktow
+        // metoda sprawdza wielkosc tablicy z prodtami
+        const products = this.getAllProductsFromOffer(mainID);
         const productID = this.howManyProductsContainsOffer(mainID) + 1; //rzutowanie na number?
-        console.log(productID);
 
-        //todo
-        //dostan sie do tablicy produktow i wsztyknij utworzony obiekt na postawie danych z body
-
-        console.log('Obecna zawartość oferty:', currentOffer);
-        console.log('Dane z body:', obj);
+        //tworzymy nowy obekt typu produkt
+        const newProduct = {
+            innerID: productID,
+            ...obj,
+        }
+        //dodajemy do tablicy i zasisujemy do json obiekt data
+        products.push(newProduct);
+        await writeFile(this.fileName, JSON.stringify(this.getAllData()));
     }
 
     //pobierz cala liste
@@ -68,8 +68,9 @@ class Db {
         // return (this._data.find((oneClient) => oneClient.mainID === mainID)).products;
         //return offer.products;
     }
+
     //pobierz ilosc produktow ile obecnie jest w pojedynczej ofercie
-    howManyProductsContainsOffer(mainID){
+    howManyProductsContainsOffer(mainID) {
         const qty = this.getAllProductsFromOffer(mainID);
         return qty.length;
         // console.log('Ilość produtków', qty);

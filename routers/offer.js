@@ -15,19 +15,18 @@ offerRouter
     })
 
     //tworzenie oferty
-    //dodaj nowa oferte - widok dodawanie klienta oraz numeru projektu
+    //dodaj nowa oferte - widok dodawanie klienta oraz numeru projektu - do podrasowania
     .get('/forms/create-new-offer', (req, res) => {
         res.render('offer/forms/create-new-offer')
     })
 
     //dodanie nowej oferty
-    .post('/', (req, res) => {
+    .post('/', async(req, res) => {
         const {customer, projectNumber} = req.body;
-        db.createNewRFQ(req.body);
+        await db.createNewRFQ(req.body);
         res.render('offer/created', {
             projectNumber,
             customer,
-
         })
     })
 
@@ -52,19 +51,21 @@ offerRouter
             products: db.getAllProductsFromOffer(req.params.id),
         });
     })
+
     //dodanie produktu do oferty
-    .post('/modify/:id', (req, res) => {
+    .post('/modify/:id', async (req, res) => {
         //tutaj powinno renderować ponownie listę produtków w ofercie, wieć widok edit one - sprawdzić
         // res.render('offer/edit-one', {
         //     offer: db.getSingleData(req.params.id),
         //     products: db.getAllProductsFromOffer(req.params.id),
         // });
-        db.addProduct(req.params.id, req.body);
-        db.howManyProductsContainsOffer(req.params.id);
+        await db.addProduct(req.params.id, req.body);
+        //db.howManyProductsContainsOffer(req.params.id);
         // console.log(req.params.id);
-        res.send(req.body);
-        // console.log(req.body);
-        //dodaj pozycje do tablicy produktow
+        res.render('offer/edit-one', {
+            offer: db.getSingleData(req.params.id),
+            products: db.getAllProductsFromOffer(req.params.id),
+        });
     })
 
 
