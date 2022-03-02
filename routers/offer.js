@@ -16,9 +16,9 @@ offerRouter
 
     //tworzenie oferty
     //dodaj nowa oferte - widok dodawanie klienta oraz numeru projektu - do podrasowania
-    .get('/forms/create-new-offer', (req, res) => {
-        res.render('offer/forms/create-new-offer')
-    })
+    // .get('/forms/create-new-offer', (req, res) => {
+    //     res.render('offer/forms/create-new-offer')
+    // })
 
     //dodanie nowej oferty
     .post('/', async(req, res) => {

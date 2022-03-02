@@ -11,7 +11,7 @@
     - wyswietlanie produktów - ok, list-one
       a) podglad wydruku, todo print-preview
     - modyfikacja listy, edit-one
-        a) formularz dodawanie, todo
+        a) formularz dodawanie, gotowe - przenies na prawa strone
         b) usuwanie, todo
         c) aktualizowanie - nie obowiązkowe
 
@@ -20,6 +20,6 @@
    Kod:
    a) wywietlanie numeru oferty na podstawie indeksu numeru tablicy a nie id - ok,
    b) przerobic id na uuid - ok,
-   c) product ma miec id generowane na podstawie miejsca w tablicy. todo
+   c) product ma miec id generowane na podstawie miejsca w tablicy. -ok
       Metoda pobierajaca wiekosc tablicy + 1
 
