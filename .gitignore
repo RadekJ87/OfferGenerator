@@ -15,3 +15,8 @@ package-lock.json
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
