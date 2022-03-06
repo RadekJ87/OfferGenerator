@@ -12,10 +12,15 @@
       a) podglad wydruku, todo print-preview
     - modyfikacja listy, edit-one
         a) formularz dodawanie, gotowe - przenies na prawa strone
-        b) usuwanie, todo
+        b) usuwanie, todo - zrobic na uuid
+           id oferty/numer w tablicy - 1. Metoda removeFromOffer(mainID,productID) -> metoda filter
         c) aktualizowanie - nie obowiązkowe
 
+3. Refactor json
+    mainID do offerID,
+    innerID -> productInternalID
 
+4. Refactor DB - metody this.data i tak dalej, teraz jest przekombinowane
 
    Kod:
    a) wywietlanie numeru oferty na podstawie indeksu numeru tablicy a nie id - ok,

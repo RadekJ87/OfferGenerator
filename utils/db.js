@@ -52,6 +52,18 @@ class Db {
         await writeFile(this.fileName, JSON.stringify(this.getAllData()));
     }
 
+    async removeProduct(mainID, number) {
+        const products = this.getAllProductsFromOffer(mainID).splice(number - 1, 1);
+        //const filtered = products.filter(product => product.innerID !== number);
+        // console.log(products);
+        // console.log(filtered);
+
+        //trzeba refaktor do this data//
+        // console.log(this.getAllData());
+        await writeFile(this.fileName, JSON.stringify(this.getAllData()));
+
+    }
+
     //pobierz cala liste
     getAllData() {
         return this._data;
@@ -75,6 +87,10 @@ class Db {
         return qty.length;
         // console.log('Ilość produtków', qty);
         // console.log(qty.length);
+    }
+
+    refreshInnerID(){
+        //motoda przeladowujaca liste produktow po usunieciu
     }
 }
 

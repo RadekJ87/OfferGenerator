@@ -25,13 +25,14 @@
         <tbody>
         {{#each products}}
             <tr>
-                <td>{{this.innerID}}</td>
+<!--                <td>{{this.innerID}}</td> -->
+                <td>{{listAllIndex @index}}</td>
                 <td>{{this.description}}</td>
                 <td>{{this.quantity}}</td>
                 <td>{{this.price}} €/pc</td>
                 <td>{{this.comment}}</td>
                 <td>
-                    <form method="POST" action="/offer/{{../offer.mainID}}/{{this.innerID}}?_method=DELETE">
+                    <form method="POST" action="/offer/modify/{{../offer.mainID}}/{{this.innerID}}?_method=DELETE">
                         <button type="submit">Usuń</button>
                     </form>
                 </td>

@@ -68,6 +68,12 @@ offerRouter
         });
     })
 
+    //usuniecie produktu do oferty
+    .delete('/modify/:id/:product', async (req, res) => {
+        res.send(req.params);
+        await db.removeProduct(req.params.id, req.params.product);
+    })
+
 
 
 
@@ -94,9 +100,9 @@ offerRouter
     .delete('/:id', (req, res) => {
         res.send('usunieto oferte');
     })
-    .delete('/:id/:product', (req, res) => {
-        res.send('usunieto produkt z oferty');
-    })
+    // .delete('/:id/:product', (req, res) => {
+    //     res.send('usunieto produkt z oferty');
+    // })
 
 
 module.exports = {
