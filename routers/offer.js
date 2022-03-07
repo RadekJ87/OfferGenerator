@@ -70,8 +70,12 @@ offerRouter
 
     //usuniecie produktu do oferty
     .delete('/modify/:id/:product', async (req, res) => {
-        res.send(req.params);
+        // res.send(req.params);
         await db.removeProduct(req.params.id, req.params.product);
+        res.render('offer/edit-one', {
+            offer: db.getSingleData(req.params.id),
+            products: db.getAllProductsFromOffer(req.params.id),
+        });
     })
 
 

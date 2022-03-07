@@ -40,62 +40,66 @@ class Db {
         // metoda pobiera tablice produktow
         // metoda sprawdza wielkosc tablicy z prodtami
         const products = this.getAllProductsFromOffer(mainID);
-        const productID = this.howManyProductsContainsOffer(mainID) + 1; //rzutowanie na number?
+        console.log('products', products);
+        // const productID = this.howManyProductsContainsOffer(mainID) + 1; //rzutowanie na number?
 
         //tworzymy nowy obekt typu produkt
         const newProduct = {
-            innerID: productID,
+            innerID: uuid(),
             ...obj,
         }
+        console.log('nowy', newProduct)
         //dodajemy do tablicy i zasisujemy do json obiekt data
         products.push(newProduct);
+        console.log('wszyttkie', this.getAllData());
         await writeFile(this.fileName, JSON.stringify(this.getAllData()));
     }
 
-    async removeProduct(mainID, number) {
-        const products = this.getAllProductsFromOffer(mainID).splice(number - 1, 1);
-        //const filtered = products.filter(product => product.innerID !== number);
-        // console.log(products);
-        // console.log(filtered);
-
-        //trzeba refaktor do this data//
-        // console.log(this.getAllData());
+    async removeProduct(mainID, productID) {
+        //ok
+        // pobierz tablice produktow z oferty, usun jeden element -> znajduje go metoda findPositioninProductsArray
+        let products = this.getAllProductsFromOffer(mainID).splice(this.findPositionInProductsArray(mainID, productID), 1);
         await writeFile(this.fileName, JSON.stringify(this.getAllData()));
-
     }
 
-    //pobierz cala liste
+    //pobierz cala liste ofert
     getAllData() {
         return this._data;
     }
 
-    //pobierz pojedynczy rekord
+    //pobierz pojedyncza oferte
     getSingleData(mainID) {
         return this._data.find((oneClient) => oneClient.mainID === mainID);
     }
 
-    //pobierz produkty z pojedynczego rekordu
+    //pobierz produkty z pojedynczej oferty
     getAllProductsFromOffer(mainID) {
+        // (this.getSingleData(mainID).products).forEach(product => console.log(product.innerID));
         return this.getSingleData(mainID).products;
-        // return (this._data.find((oneClient) => oneClient.mainID === mainID)).products;
-        //return offer.products;
     }
 
     //pobierz ilosc produktow ile obecnie jest w pojedynczej ofercie
     howManyProductsContainsOffer(mainID) {
         const qty = this.getAllProductsFromOffer(mainID);
         return qty.length;
-        // console.log('Ilość produtków', qty);
-        // console.log(qty.length);
     }
 
-    refreshInnerID(){
+    findPositionInProductsArray(offerID, productID) {
+        // pobierz wszystkie produkty z oferty, znajdz index na postawie inner id, konweruje do number i zwroc
+        // const allProducts = this.getAllProductsFromOffer(offerID);
+        // const foundProduct = Number(allProducts.findIndex( product => product.innerID === productID));
+        // return foundProduct;
+
+        //refactor
+        return Number((this.getAllProductsFromOffer(offerID)).findIndex(product => product.innerID === productID));
+    }
+
+    refreshInnerID() {
         //motoda przeladowujaca liste produktow po usunieciu
     }
 }
 
 const db = new Db('offers-list.json');
-
 
 module.exports = {
     db,
