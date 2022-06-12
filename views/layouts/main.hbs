@@ -4,27 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Generator Ofert - KORDAS</title>
     <link rel="stylesheet" href="/assets/styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+            integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-    <div class="header">
-        <!--    dodaj czcionki-->
-        <img src="/assets/images/logo.svg" alt="">
-        <h1>Generator Ofert</h1>
-    </div>
-    {{{body}}}
-    <footer class="main-footer">
-        <p> © 2022 Radek Janiszewski. Wszelkie prawa zastrzeżone</p>
-    </footer>
+<div class="header">
+    <!--    dodaj czcionki-->
+    <img src="/assets/images/logo.svg" alt="">
+    <h1>Generator Ofert</h1>
+</div>
+{{{body}}}
+<!--    <footer class="main-footer">-->
+<!--        <p> © 2022 Radek Janiszewski. Wszelkie prawa zastrzeżone</p>-->
+<!--    </footer>-->
+
+<!--    <script src="/assets/js/print.js"></script>-->
+<!-- skrypt przeniesiony do .hbs z wydrukiem, innaczej rzuca null-->
+
 </body>
+
 
 </html>

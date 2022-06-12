@@ -1,6 +1,6 @@
 <!--<h1>print-preview</h1>-->
-<div class="print-preview-container">
-    <page size="A4">
+<div class="print-preview-container" id="offer-to-print" >
+    <page size="A4" >
        <div class="header-print">
            <h1>Offer No: tutaj wstrzykujemy numer projektu</h1>
            <img src="/assets/images/logo-black-print.png" alt="">
@@ -22,7 +22,10 @@
 </div>
 <div class="print-preview-footer">
     <a href="/offer/{{offer.mainID}}/">Anuluj</a>
-    <button>Drukuj</button>
+    <button onclick="window.print()">Drukuj</button>
+<!--    id="print" powyzej dodane id do metody drukwania-->
 </div>
+
+<script src="/assets/js/print.js"></script>
 
 

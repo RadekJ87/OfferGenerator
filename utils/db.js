@@ -22,17 +22,18 @@ class Db {
         const {customer, projectNumber} = obj;
         const newQuotation = {
             mainID: uuid(),
-            projectNumber: projectNumber,
-            customer: customer,
+            projectNumber,
+            customer,
             products: [],
         }
-        const file = this._data;
-        file.push(newQuotation);
-        console.log(file);
+        // const file = this._data;
+        // file.push(newQuotation);
+        this._data.push(newQuotation);
+        // console.log(file);
         //dodaj zapis
 
 
-        await writeFile(this.fileName, JSON.stringify(file));
+        await writeFile(this.fileName, JSON.stringify(this._data));
     }
 
     //dodaj produkty do istniejącej oferty - metoda przyjmuje id oraz obiekt, musi wiedziec ile jest lementów w tablicy products
@@ -40,7 +41,7 @@ class Db {
         // metoda pobiera tablice produktow
         // metoda sprawdza wielkosc tablicy z prodtami
         const products = this.getAllProductsFromOffer(mainID);
-        console.log('products', products);
+        // console.log('products', products);
         // const productID = this.howManyProductsContainsOffer(mainID) + 1; //rzutowanie na number?
 
         //tworzymy nowy obekt typu produkt
@@ -48,10 +49,10 @@ class Db {
             innerID: uuid(),
             ...obj,
         }
-        console.log('nowy', newProduct)
+        // console.log('nowy', newProduct)
         //dodajemy do tablicy i zasisujemy do json obiekt data
         products.push(newProduct);
-        console.log('wszyttkie', this.getAllData());
+        // console.log('wszyttkie', this.getAllData());
         await writeFile(this.fileName, JSON.stringify(this.getAllData()));
     }
 

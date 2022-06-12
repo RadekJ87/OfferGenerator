@@ -55,17 +55,17 @@ offerRouter
     //dodanie produktu do oferty
     .post('/modify/:id', async (req, res) => {
         //tutaj powinno renderować ponownie listę produtków w ofercie, wieć widok edit one - sprawdzić
-        // res.render('offer/edit-one', {
-        //     offer: db.getSingleData(req.params.id),
-        //     products: db.getAllProductsFromOffer(req.params.id),
-        // });
-        await db.addProduct(req.params.id, req.body);
-        //db.howManyProductsContainsOffer(req.params.id);
-        // console.log(req.params.id);
-        res.render('offer/edit-one', {
-            offer: db.getSingleData(req.params.id),
-            products: db.getAllProductsFromOffer(req.params.id),
-        });
+
+        //obluga bledow musi byc tutaj bo nie tworzymy obiektow
+        if(req.body.price === '5000'){
+            res.send('Zla cena');
+        } else {
+            await db.addProduct(req.params.id, req.body);
+            res.render('offer/edit-one', {
+                offer: db.getSingleData(req.params.id),
+                products: db.getAllProductsFromOffer(req.params.id),
+            });
+        }
     })
 
     //usuniecie produktu do oferty

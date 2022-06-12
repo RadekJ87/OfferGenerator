@@ -100,7 +100,7 @@ thead {
     padding: 7px;
     font-size: 22px;
     transition: .4s;
-} */
+}
 
 .button-new-offer button:hover, .button-standard button:hover {
     color: #ffffff;
@@ -201,10 +201,13 @@ a:hover {
 
 /* print-preview.hbs */
 @media print {
-    .print-preview-container, page {
-        size: A4;
-        margin: 0;
-        box-shadow: 0;
+    body *:not(#offer-to-print):not(#offer-to-print *) {
+        visibility: hidden;
+    }
+    #offer-to-print{
+        position:absolute;
+        top: 0;
+        left: 0;
     }
 }
 
