@@ -4,7 +4,7 @@ const offerRouter = express.Router();
 
 
 offerRouter
-    //widok główny
+
     //list-all - Lista ofert - ok
     .get('/', (req, res) => {
         // res.send('Lista ofert');
@@ -13,12 +13,6 @@ offerRouter
             offers: db.getAllData(),
         });
     })
-
-    //tworzenie oferty
-    //dodaj nowa oferte - widok dodawanie klienta oraz numeru projektu - do podrasowania
-    // .get('/forms/create-new-offer', (req, res) => {
-    //     res.render('offer/forms/create-new-offer')
-    // })
 
     //dodanie nowej oferty
     .post('/', async(req, res) => {
@@ -30,8 +24,6 @@ offerRouter
         })
     })
 
-
-    //widok po wejsciu w opcje ofert
     //list-one - widok pojedynczej - ok
     .get('/:id', (req, res) => {
         // res.send('pojedyncza oferta');
@@ -39,6 +31,13 @@ offerRouter
         res.render('offer/list-one', {
             offer: db.getSingleData(req.params.id),
             products: db.getAllProductsFromOffer(req.params.id),
+        });
+    })
+
+    //podglad wydruku
+    .get('/:id/preview', (req, res) => {
+        res.render('offer/print-preview', {
+            offer: db.getSingleData(req.params.id),
         });
     })
 

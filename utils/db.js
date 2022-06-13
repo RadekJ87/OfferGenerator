@@ -19,19 +19,14 @@ class Db {
 
     //utwórz ofertę
     async createNewRFQ(obj) {
-        const {customer, projectNumber} = obj;
+
         const newQuotation = {
             mainID: uuid(),
-            projectNumber,
-            customer,
+            projectNumber: Number(obj.projectNumber),
+            customer: obj.customer,
             products: [],
         }
-        // const file = this._data;
-        // file.push(newQuotation);
         this._data.push(newQuotation);
-        // console.log(file);
-        //dodaj zapis
-
 
         await writeFile(this.fileName, JSON.stringify(this._data));
     }
@@ -39,18 +34,17 @@ class Db {
     //dodaj produkty do istniejącej oferty - metoda przyjmuje id oraz obiekt, musi wiedziec ile jest lementów w tablicy products
     async addProduct(mainID, obj) {
         // metoda pobiera tablice produktow
-        // metoda sprawdza wielkosc tablicy z prodtami
         const products = this.getAllProductsFromOffer(mainID);
-        // console.log('products', products);
-        // const productID = this.howManyProductsContainsOffer(mainID) + 1; //rzutowanie na number?
 
         //tworzymy nowy obekt typu produkt
         const newProduct = {
             innerID: uuid(),
             ...obj,
+            price: Number(obj.price),
+            quantity: Number(obj.quantity),
         }
-        // console.log('nowy', newProduct)
-        //dodajemy do tablicy i zasisujemy do json obiekt data
+
+        //dodajemy do tablicy i zapisujemy do json obiekt data
         products.push(newProduct);
         // console.log('wszyttkie', this.getAllData());
         await writeFile(this.fileName, JSON.stringify(this.getAllData()));

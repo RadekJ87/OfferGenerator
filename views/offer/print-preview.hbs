@@ -6,7 +6,7 @@
                     <tr>
                         <td>
                             <h1>Offer number</h1>
-                            <h2>123456</h2>
+                            <h2>{{offer.projectNumber}}</h2>
                         </td>
 
                         <td>
@@ -39,17 +39,17 @@
             </td>
         </tr>
 
-        <tr class="heading">
-            <td>Payment Method</td>
+<!--        <tr class="heading">-->
+<!--            <td>Payment Method</td>-->
 
-            <td>Check #</td>
-        </tr>
+<!--            <td>Check #</td>-->
+<!--        </tr>-->
 
-        <tr class="details">
-            <td>Check</td>
+<!--        <tr class="details">-->
+<!--            <td>Check</td>-->
 
-            <td>1000</td>
-        </tr>
+<!--            <td>1000</td>-->
+<!--        </tr>-->
 
         <tr class="heading">
             <td>Item</td>
@@ -57,11 +57,13 @@
             <td>MOQ/Price</td>
         </tr>
 
+        {{#each offer.products}}
         <tr class="item">
-            <td>Website design</td>
+            <td>{{this.description}}</td>
 
-            <td>5/$300.00</td>
+            <td>{{this.quantity}} pc(s) / €{{this.price}}</td>
         </tr>
+        {{/each}}
 
 <!--        <tr class="items-list">-->
 <!--            <td colspan="3">-->
@@ -75,22 +77,22 @@
 <!--            </td>-->
 <!--        </tr>-->
 
-        <tr class="item">
-            <td>Hosting (3 months)</td>
+<!--        <tr class="item">-->
+<!--            <td>Hosting (3 months)</td>-->
 
-            <td>$75.00</td>
-        </tr>
+<!--            <td>$75.00</td>-->
+<!--        </tr>-->
 
-        <tr class="item last">
-            <td>Domain name (1 year)</td>
+<!--        <tr class="item last">-->
+<!--            <td>Domain name (1 year)</td>-->
 
-            <td>$10.00</td>
-        </tr>
+<!--            <td>$10.00</td>-->
+<!--        </tr>-->
 
         <tr class="total">
             <td></td>
 
-            <td>Total: $385.00</td>
+            <td>Total: € {{getTotalSum offer.products}}</td>
         </tr>
     </table>
 </div>

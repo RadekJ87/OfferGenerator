@@ -2,6 +2,7 @@
 
 
 // przywroc template do poczatku, ostluj do ramki od nowa, doczytaj o inline blok
+// poprawne rzutowanie na typy, urlencoded robi string
 
 
 
