@@ -1,28 +1,97 @@
-<!--<h1>print-preview</h1>-->
-<div class="print-preview-container">
-    <page size="A4">
-       <div class="header-print">
-           <h1>Offer No: tutaj wstrzykujemy numer projektu</h1>
-           <img src="/assets/images/logo-black-print.png" alt="">
-           <p>Data utworzenia -> metoda pobierajaca date z systemu</p>
-       </div>
+<div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="2">
+                <table class="offer-data">
+                    <tr>
+                        <td>
+                            <h1>Offer number</h1>
+                            <h2>123456</h2>
+                        </td>
 
-        <div class="seller-customer-data">
-            flexbox?
-            <div class="seller">
-                dane kordas
-            </div>
-            <div class="customer">
-                dane kleinta pobierane z oferty
-            </div>
-        </div>
-        <br>
-        <h2>{{offer.mainID}}</h2>
-    </page>
-</div>
-<div class="print-preview-footer">
-    <a href="/offer/{{offer.mainID}}/">Anuluj</a>
-    <button>Drukuj</button>
-</div>
+                        <td>
+                            Created: January 1, 2015<br/>
+                            Due: February 1, 2015<br/>
+                            Lead time: 20 working days
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
 
+        <tr class="information">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            Kordas Sp. z o.o.<br/>
+                            ul. Zakładowa 2<br/>
+                            57-215 Srebrna Góra
+                        </td>
+
+                        <td>
+                            Ahrend<br/>
+                            Kofferen<br/>
+                            Sintodenrode 666
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="heading">
+            <td>Payment Method</td>
+
+            <td>Check #</td>
+        </tr>
+
+        <tr class="details">
+            <td>Check</td>
+
+            <td>1000</td>
+        </tr>
+
+        <tr class="heading">
+            <td>Item</td>
+
+            <td>MOQ/Price</td>
+        </tr>
+
+        <tr class="item">
+            <td>Website design</td>
+
+            <td>5/$300.00</td>
+        </tr>
+
+<!--        <tr class="items-list">-->
+<!--            <td colspan="3">-->
+<!--                <table>-->
+<!--                    <tr>-->
+<!--                        <td>Item</td>-->
+<!--                        <td>MOQ</td>-->
+<!--                        <td>Price</td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+<!--            </td>-->
+<!--        </tr>-->
+
+        <tr class="item">
+            <td>Hosting (3 months)</td>
+
+            <td>$75.00</td>
+        </tr>
+
+        <tr class="item last">
+            <td>Domain name (1 year)</td>
+
+            <td>$10.00</td>
+        </tr>
+
+        <tr class="total">
+            <td></td>
+
+            <td>Total: $385.00</td>
+        </tr>
+    </table>
+</div>
 
