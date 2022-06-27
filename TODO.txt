@@ -1,9 +1,19 @@
 //todo drugi json z adressami? przy generowaniu oferty bedzie zaciagać adress. Wystarczy chyba if w hbsie
 
+
+// przywroc template do poczatku, ostluj do ramki od nowa, doczytaj o inline blok
+// poprawne rzutowanie na typy, urlencoded robi string
+
+
+
 1. Widok ofert
    Widok główny:
-   - lista ofert - ok, list-all
+   - lista ofert - ok, list-all  //gotowe
    - tworzenie nowej oferty -ok, formularz na głównej todo przeniesc na prawa strone
+   - dodanie nowych pol do oferty:
+      - data utworzenie oferty,
+      - data waznosci oferty,
+      - termin realizacji
 
 2. Widok oferty:
     - wyswietlanie produktów - ok, todo tylko ostylować - list-one
@@ -29,7 +39,7 @@
 4. Refactor DB - metody this.data i tak dalej, teraz jest przekombinowane
 
    Kod:
-   a) wywietlanie numeru oferty na podstawie indeksu numeru tablicy a nie id - ok,
+   a) wywietlanie numeru itemu na podstawie indeksu numeru tablicy a nie id - ok,
    b) przerobic id na uuid - ok,
    c) product ma mus miec uuid, metoda miejscem tablicy jest dluzsza w implementacji i wymagala by przeladowania. Do lp wystarczy @index, bo o nic wiecej w tym nie chodzilo jak poprawne wyswietlanie lp.
 

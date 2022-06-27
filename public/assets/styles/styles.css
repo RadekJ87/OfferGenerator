@@ -5,59 +5,68 @@
 }
 
 body {
-    background-color: #C0C0C0;
+    /*background-color: #C0C0C0;*/
     font-family: 'Montserrat', 'Roboto', sans-serif;
-}
-
-h1.important {
-    margin-left: 20px;
-    color: white;
 }
 
 .header {
     position: relative;
+    display: flex;
     width: 100%;
-    height: 100px;
-    /*margin-bottom: 50px;*/
-    background-color: black;
-    /*display: flex;*/
-    /*align-items: center;*/
-}
-
-div.disabled {
-    display: none;
+    /*height: 100px;*/
+    height: 60px;
+    background-color: burlywood;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header img {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 226px;
-    height: 90px;
+    width: 15%;
+    height: 40%;
 }
 
-.header h1 {
-    font-size: 32px;
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
+.header .company-address{
+    margin-right: 20px;
 }
 
-.main-footer {
-    position: absolute;
-    width: 100%;
-    left: 20px;
-    bottom: 0;
-    height: 30px;
-
-    text-align: center;
+.header h3{
+    font-size: 0.6em;
 }
 
-.main-footer > p {
-    line-height: 30px;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+/*.header h1 {*/
+/*    font-size: 32px;*/
+/*    position: absolute;*/
+/*    right: 30px;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*}*/
+
+
+/*.main-footer {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    left: 20px;*/
+/*    bottom: 0;*/
+/*    height: 30px;*/
+
+/*    text-align: center;*/
+/*}*/
+
+/*.main-footer > p {*/
+/*    line-height: 30px;*/
+/*}*/
 
 
 /* list-all.hbs*/
@@ -106,7 +115,7 @@ thead {
     color: #ffffff;
     background-color: firebrick;
     cursor: progress;
-} 
+}
 
 /* list-one.hbs*/
 .offer-single-container {
@@ -140,11 +149,11 @@ thead {
     text-align: center;
 }
 
-tbody td {
-    background-color: #ffffff;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-}
+/*tbody td {*/
+/*    background-color: #ffffff;*/
+/*    text-align: center;*/
+/*    font-family: 'Roboto', sans-serif;*/
+/*}*/
 
 .offer-single-header th:nth-child(2n) {
     text-align: center;
@@ -199,74 +208,106 @@ a:hover {
     font-size: 28px;
 }
 
-/* print-preview.hbs */
+
+/*invoice*/
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+}
+
+.invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+}
+
+.invoice-box table tr td:nth-child(2) {
+    text-align: right;
+}
+
+.invoice-box table tr.top table td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+}
+
+.invoice-box table tr.information table td {
+    padding-bottom: 40px;
+}
+
+.invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.invoice-box table tr.details td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.item td {
+    border-bottom: 1px solid #eee;
+}
+
+.invoice-box table tr.item.last td {
+    border-bottom: none;
+}
+
+.invoice-box table tr.total td:nth-child(2) {
+    border-top: 2px solid #eee;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}
+
+/** RTL **/
+.invoice-box.rtl {
+    direction: rtl;
+    font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+}
+
+.invoice-box.rtl table {
+    text-align: right;
+}
+
+.invoice-box.rtl table tr td:nth-child(2) {
+    text-align: left;
+}
+
 @media print {
-    body *:not(#offer-to-print):not(#offer-to-print *) {
-        visibility: hidden;
-    }
-    #offer-to-print{
-        position:absolute;
-        top: 0;
-        left: 0;
-    }
+.invoice-box {
+    max-width: unset;
+    box-shadow: none;
+    border: 0px;
 }
-
-.print-preview-container {
-    position: relative;
-    height: calc(100vh - 130px);
-    background: rgb(204, 204, 204);
-}
-
-page {
-    position: absolute;
-    background: white;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: block;
-    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
-}
-
-page[size="A4"] {
-    width: calc(21cm * 0.7);
-    height: calc(29.7cm * 0.7);
-}
-
-.header-print {
-    position: relative;
-    width: 100%;
-    height: 20%;
-    background-color: #ff9988;
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-}
-
-.header-print>* {
-    position: absolute;
-    top: 15px;
-}
-
-.header-print>h1 {
-    left: 20px;
-    font-size: 12px;
-}
-
-.header-print>img {
-    right: 20px;
-    width: 30%;
-    /*height: 20%;*/
-}
-
-.header-print>p {
-    left: 20px;
-    top: 100px;
-    font-size: 10px;
-}
-
-.seller-customer-data {
-    position: relative;
-    top: 0;
 }
 
 
@@ -274,44 +315,13 @@ page[size="A4"] {
 
 
 
-/*footer*/
-.print-preview-footer {
-    position: relative;
-    bottom: 0;
-    font-size: 16px;
-    line-height: 30px;
-    height: 30px;
-    width: 100%;
-    background-color: #C0C0C0;
-    text-align: center;
 
-}
 
-.print-preview-footer>button {
-    font-family: 'Montserrat', 'Roboto', sans-serif;
-    font-weight: bold;
-    width: 100px;
-    font-size: 16px;
-    transition: all 0.7s;
-    transition-timing-function: cubic-bezier(0.1, 0.25, 0.25, 0.1);
 
-}
 
-.print-preview-footer>button:hover {
-    background-color: red;
-    color: white;
-    width: 140px;
-    cursor: progress;
-}
 
-.print-preview-footer a {
-    margin-right: 10px;
-    font-weight: bold;
-    text-decoration: none;
-    transform: none;
-}
 
-.print-preview-footer a:hover {
-    color: red;
-    font-size: 16px;
-}
+
+
+
+

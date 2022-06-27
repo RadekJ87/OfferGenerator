@@ -1,55 +1,38 @@
 <div class="wrapper">
     <div class="offers-list-container">
-        <h1 class="important">Lista ofert -> view 'list-all'</h1>
+        <h1 class="important">Lista ofert</h1>
         <table class="offers-list-table">
             <thead>
-                <tr>
-                    <th>Numer</th>
-                    <th>Klient</th>
-                    <th>Projekt</th>
-                    <th>Szczegóły</th>
-                    <th>Modyfikuj</th>
-                </tr>
+            <tr>
+                <th>Numer</th>
+                <th>Klient</th>
+                <th>Projekt</th>
+                <th>Szczegóły</th>
+                <th>Modyfikuj</th>
+                <th>Usuń</th>
+            </tr>
             </thead>
             <tbody>
-                {{#each offers}}
+            {{#each offers}}
                 <tr>
-                    <!--                <td>{{this.mainID}}</td>-->
                     <td>{{listAllIndex @index}}</td>
-                    <td>{{this.customer}}</td>
+                    <td>{{this.customerName}}</td>
                     <td>{{this.projectNumber}}</td>
                     <td><a href="/offer/{{this.mainID}}/">Przejdź</a></td>
                     <td><a href="/offer/modify/{{this.mainID}}/">Zmień</a></td>
+                    <td>
+                        <form method="POST" action="/offer/delete/{{this.mainID}}?_method=DELETE">
+                            <button type="submit">Usuń</button>
+                        </form>
+                    </td>
                 </tr>
-                {{/each}}
+            {{/each}}
             </tbody>
         </table>
-    </div>
-    <div class="offer-form">
-        <h1>Dodaj nową ofertę</h1>
-        <form action="/offer" method="POST">
-            <label>
-                <p>
-                    Podaj nazwę klienta
-                </p>
-                <p>
-                    <input type="text" name="customer">
-                </p>
-            </label>
-            <label>
-                <p>
-                    Podaj numer projektu
-                </p>
-                <p>
-                    <input type="number" name="projectNumber">
-                </p>
-            </label>
-            <button type="submit">Dodaj</button>
-        </form>
     </div>
 
 </div>
 
-
-{{!-- <form class="button-new-offer" action="/offer/forms/create-new-offer" method="get"><button type="submit">Dodaj
-        nową ofertę</button></form> --}}
+<form class="button-new-offer" action="/offer/forms/create-new-offer" method="get">
+    <button type="submit">Dodaj nową ofertę</button>
+</form>
