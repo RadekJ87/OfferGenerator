@@ -5,15 +5,27 @@ const {join} = require('path');
 class Db {
     constructor(fileName) {
         this.fileName = join(__dirname, '../data/', fileName);
-        // console.log(this.fileName);
         this._loadData();
-
-
     }
 
+    // wczytywanie danych, obiekt JSON
     async _loadData() {
         this._data = JSON.parse(await readFile(this.fileName, 'utf8'));
-        // console.log(this._data[0]);
+    }
+
+    //pobierz cala liste ofert
+    getAllOffers() {
+        return this._data;
+    }
+
+    //pobierz pojedyncza oferte
+    getSingleOffer(mainID) {
+        return this._data.find((oneClient) => oneClient.mainID === mainID);
+    }
+
+    //pobierz produkty z pojedynczej oferty
+    getAllProductsFromOffer(mainID) {
+        return this.getSingleOffer(mainID).products;
     }
 
 
@@ -22,13 +34,21 @@ class Db {
 
         const newQuotation = {
             mainID: uuid(),
+            ...obj,
+            createdAt: new Date(Date.now()).toLocaleDateString(),
+            validThru: new Date((Date.now() + (3600 * 1000 * 24 * 30))).toLocaleDateString(),
             projectNumber: Number(obj.projectNumber),
-            customer: obj.customer,
             products: [],
         }
         this._data.push(newQuotation);
 
         await writeFile(this.fileName, JSON.stringify(this._data));
+    }
+
+    async deleteOffer(mainID) {
+        const products = this._data.filter(oneClient => oneClient.mainID !== mainID);
+
+        await writeFile(this.fileName, JSON.stringify(products));
     }
 
     //dodaj produkty do istniejącej oferty - metoda przyjmuje id oraz obiekt, musi wiedziec ile jest lementów w tablicy products
@@ -47,31 +67,17 @@ class Db {
         //dodajemy do tablicy i zapisujemy do json obiekt data
         products.push(newProduct);
         // console.log('wszyttkie', this.getAllData());
-        await writeFile(this.fileName, JSON.stringify(this.getAllData()));
+        await writeFile(this.fileName, JSON.stringify(this.getAllOffers()));
     }
 
     async removeProduct(mainID, productID) {
         //ok
         // pobierz tablice produktow z oferty, usun jeden element -> znajduje go metoda findPositioninProductsArray
-        let products = this.getAllProductsFromOffer(mainID).splice(this.findPositionInProductsArray(mainID, productID), 1);
-        await writeFile(this.fileName, JSON.stringify(this.getAllData()));
+        const products = this.getAllProductsFromOffer(mainID).splice(this.findPositionInProductsArray(mainID, productID), 1);
+        await writeFile(this.fileName, JSON.stringify(this.getAllOffers()));
     }
 
-    //pobierz cala liste ofert
-    getAllData() {
-        return this._data;
-    }
 
-    //pobierz pojedyncza oferte
-    getSingleData(mainID) {
-        return this._data.find((oneClient) => oneClient.mainID === mainID);
-    }
-
-    //pobierz produkty z pojedynczej oferty
-    getAllProductsFromOffer(mainID) {
-        // (this.getSingleData(mainID).products).forEach(product => console.log(product.innerID));
-        return this.getSingleData(mainID).products;
-    }
 
     //pobierz ilosc produktow ile obecnie jest w pojedynczej ofercie
     howManyProductsContainsOffer(mainID) {

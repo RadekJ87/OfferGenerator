@@ -10,8 +10,8 @@
                         </td>
 
                         <td>
-                            Created: January 1, 2015<br/>
-                            Due: February 1, 2015<br/>
+                            Created: {{offer.createdAt}}<br/>
+                            Due: {{offer.validThru}}<br/>
                             Lead time: 20 working days
                         </td>
                     </tr>
@@ -30,9 +30,9 @@
                         </td>
 
                         <td>
-                            Ahrend<br/>
-                            Kofferen<br/>
-                            Sintodenrode 666
+                            {{offer.customerName}}<br/>
+                            {{offer.streetAndNumber}}<br/>
+                            {{offer.zipCodeAndCity}}
                         </td>
                     </tr>
                 </table>

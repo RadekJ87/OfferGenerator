@@ -2,32 +2,36 @@
 <form action="/offer" method="POST">
     <label>
         <p>
-            Podaj nazwę klienta
-        </p>
-        <p>
-            <input type="text" name="customer">
-        </p>
-    </label>
-    <label>
-        <p>
             Podaj numer projektu
         </p>
         <p>
             <input type="number" name="projectNumber">
         </p>
     </label>
-    <button type="submit">Dalej</button>
+    <label>
+        <p>
+            Nazwa klienta
+        </p>
+        <p>
+            <input type="text" name="customerName">
+        </p>
+    </label>
+    <label>
+        <p>
+            Nazwa ulicy, numer budynku lub lokalu
+        </p>
+        <p>
+            <input type="text" name="streetAndNumber">
+        </p>
+    </label>
+    <label>
+        <p>
+            Kod pocztowy, miejscowość
+        </p>
+        <p>
+            <input type="text" name="zipCodeAndCity">
+        </p>
+    </label>
+    <button type="submit">Dodaj</button>
 </form>
-<p class="cancel"><a href="/">Anuluj</a></p>
-
-<br>
-<br>
-
-
-// TODO
-<br>
-// tutaj powinna być metoda która tworzy obiekt z automatycznie przypisanym id na podstawie miejsca w tablicy,
-<br>
-// dodaje pole customer oraz projectNumber, towrzy pusta tablice products w obiekcie
-<br>
-// Przechodzimy stąd do formularza dodawanie produktów
+{{> go-home}}
