@@ -4,54 +4,51 @@
     box-sizing: border-box;
 }
 
+/*ok - ustaw czarny na koniec*/
 body {
-    /*background-color: #C0C0C0;*/
+    /*background-color: #000000;*/
+    background-color: #cccccc;
     font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
+/*ok*/
 .header {
+    min-width: 1024px;
     position: relative;
     display: flex;
     width: 100%;
-    /*height: 100px;*/
     height: 60px;
-    background-color: burlywood;
+    background-color: #ffffff;
     justify-content: space-between;
     align-items: center;
 }
 
+/*ok*/
+.header .company-logo {
+    margin-left: 20px;
+    font-size: 0.8em;
+}
+/*ok*/
 .header img {
-    width: 15%;
+    width: 37%;
     height: 40%;
 }
 
-.header .company-address{
+/*ok*/
+#header-app-name{
+    font-size: 1.4em;
+    position: absolute;
+    left: 300px;
+}
+
+/*ok*/
+.header .company-address {
     margin-right: 20px;
 }
-
-.header h3{
+/*ok*/
+.header h3 {
     font-size: 0.6em;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.header h1 {*/
-/*    font-size: 32px;*/
-/*    position: absolute;*/
-/*    right: 30px;*/
-/*    top: 50%;*/
-/*    transform: translateY(-50%);*/
-/*}*/
 
 
 /*.main-footer {*/
@@ -70,17 +67,43 @@ body {
 
 
 /* list-all.hbs*/
-.wrapper {
+/* kontener - ok */
+.list-view{
+    margin: 20px 20px;
+    /*width: 100vw;*/
+    min-width: 1024px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* flex z lewej z ofertami - column z opisem i tabelą - ok */
+.wrapper-offers {
+    /*width: 80vw;*/
     height: calc(100vh - 130px);
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/*ok*/
+.wrapper-offers>h1{
+    margin-left: 20px;
+}
+
+/* flex z prawej z przyciskiem dodawania ofert */
+.aside-offers{
+    margin-top: 50px;
+    /*width: 20vw;*/
+    display: flex;
+    flex-direction: column;
 }
 
 
-.offers-list-container {
-    margin-top: 20px;
-    width: 40%;
-}
+/*.offers-list-container {*/
+/*    margin-top: 20px;*/
+/*    !*width: 40%;*!*/
+/*}*/
 
 .offers-list-table {
     margin: 20px 0 0 20px;
@@ -93,7 +116,7 @@ thead {
     background-color: ivory;
 }
 
-.offer-form{
+.offer-form {
     margin-top: 20px;
 }
 
@@ -203,10 +226,10 @@ td button:hover {
     transition: .5s;
 }
 
-a:hover {
-    color: red;
-    font-size: 28px;
-}
+/*a:hover {*/
+/*    color: red;*/
+/*    font-size: 28px;*/
+/*}*/
 
 
 /*invoice*/
@@ -303,11 +326,15 @@ a:hover {
 }
 
 @media print {
-.invoice-box {
-    max-width: unset;
-    box-shadow: none;
-    border: 0px;
-}
+    .invoice-box {
+        max-width: unset;
+        box-shadow: none;
+        border: 0px;
+    }
+
+    .print-section-buttons {
+        display: none;
+    }
 }
 
 

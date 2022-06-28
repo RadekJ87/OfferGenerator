@@ -1,6 +1,6 @@
-<div class="wrapper">
-    <div class="offers-list-container">
-        <h1 class="important">Lista ofert</h1>
+<div class="list-view">
+    <div class="wrapper-offers">
+        <h1>Lista ofert</h1>
         <table class="offers-list-table">
             <thead>
             <tr>
@@ -30,9 +30,11 @@
             </tbody>
         </table>
     </div>
-
+    <aside class="aside-offers">
+        <form class="button-new-offer" action="/offer/forms/create-new-offer" method="get">
+            <button type="submit">Dodaj nową ofertę</button>
+        </form>
+    </aside>
 </div>
 
-<form class="button-new-offer" action="/offer/forms/create-new-offer" method="get">
-    <button type="submit">Dodaj nową ofertę</button>
-</form>
+

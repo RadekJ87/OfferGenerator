@@ -39,17 +39,17 @@
             </td>
         </tr>
 
-<!--        <tr class="heading">-->
-<!--            <td>Payment Method</td>-->
+        <!--        <tr class="heading">-->
+        <!--            <td>Payment Method</td>-->
 
-<!--            <td>Check #</td>-->
-<!--        </tr>-->
+        <!--            <td>Check #</td>-->
+        <!--        </tr>-->
 
-<!--        <tr class="details">-->
-<!--            <td>Check</td>-->
+        <!--        <tr class="details">-->
+        <!--            <td>Check</td>-->
 
-<!--            <td>1000</td>-->
-<!--        </tr>-->
+        <!--            <td>1000</td>-->
+        <!--        </tr>-->
 
         <tr class="heading">
             <td>Item</td>
@@ -58,36 +58,36 @@
         </tr>
 
         {{#each offer.products}}
-        <tr class="item">
-            <td>{{this.description}}</td>
+            <tr class="item">
+                <td>{{this.description}}</td>
 
-            <td>{{this.quantity}} pc(s) / €{{this.price}}</td>
-        </tr>
+                <td>{{this.quantity}} pc(s) / €{{this.price}}</td>
+            </tr>
         {{/each}}
 
-<!--        <tr class="items-list">-->
-<!--            <td colspan="3">-->
-<!--                <table>-->
-<!--                    <tr>-->
-<!--                        <td>Item</td>-->
-<!--                        <td>MOQ</td>-->
-<!--                        <td>Price</td>-->
-<!--                    </tr>-->
-<!--                </table>-->
-<!--            </td>-->
-<!--        </tr>-->
+        <!--        <tr class="items-list">-->
+        <!--            <td colspan="3">-->
+        <!--                <table>-->
+        <!--                    <tr>-->
+        <!--                        <td>Item</td>-->
+        <!--                        <td>MOQ</td>-->
+        <!--                        <td>Price</td>-->
+        <!--                    </tr>-->
+        <!--                </table>-->
+        <!--            </td>-->
+        <!--        </tr>-->
 
-<!--        <tr class="item">-->
-<!--            <td>Hosting (3 months)</td>-->
+        <!--        <tr class="item">-->
+        <!--            <td>Hosting (3 months)</td>-->
 
-<!--            <td>$75.00</td>-->
-<!--        </tr>-->
+        <!--            <td>$75.00</td>-->
+        <!--        </tr>-->
 
-<!--        <tr class="item last">-->
-<!--            <td>Domain name (1 year)</td>-->
+        <!--        <tr class="item last">-->
+        <!--            <td>Domain name (1 year)</td>-->
 
-<!--            <td>$10.00</td>-->
-<!--        </tr>-->
+        <!--            <td>$10.00</td>-->
+        <!--        </tr>-->
 
         <tr class="total">
             <td></td>
@@ -95,5 +95,38 @@
             <td>Total: € {{getTotalSum offer.products}}</td>
         </tr>
     </table>
+    <div class="description">
+        <div class="top-section">
+            <p><strong>The prices contained in offer are net prices.</strong></p>
+            <p>Shipping conditions: <span>DDP 6% included</span></p>
+            <p>Form of payment: <span>bank transfer</span></p>
+            <p>The prices are special, calculated for the purposes of this offer.</p>
+            <p>Goods are shipped on pallets feedback.</p>
+            <p>We reserve the rights to increase the price specified in the offer if the price of materials will
+                increase significantly.</p>
+        </div>
+        <div class="middle-section">
+            <p>Kordas does not hold responsibility for incorrect execution of an order/project it the results from an
+                inconsistency between the provided 2D documentation (pdf format) and the 3D model (e.g. stp format).</p>
+            <p>The execution of the order is based on provided documentation and does not entitle Kordas to modify
+                it.</p>
+            <p>Creating new documentation or modifying the current one may only take place upon the client is request in
+                the form of a paid order.</p>
+
+        </div>
+        <div class="bottom-section">
+            <p>Documentation and its revision are verified during technological works. Any revision update may be
+                reported up to 3 working days from placing the order. After this term, the production process of the
+                order begins and the necessity of modifying the design is subject to additional analysis by the
+                technology department. If the changes are accepted, the cost are quoted.</p>
+        </div>
+    </div>
 </div>
+<aside class="print-section-buttons">
+    <form  action="/offer/{{offer.mainID}}/" method="get">
+        <button type="submit">Powrót</button>
+    </form>
+    <button onclick="window.print()">Drukuj</button>
+</aside>
+
 
