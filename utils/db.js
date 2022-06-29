@@ -10,7 +10,11 @@ class Db {
 
     // wczytywanie danych, obiekt JSON
     async _loadData() {
-        this._data = JSON.parse(await readFile(this.fileName, 'utf8'));
+        try {
+            this._data = JSON.parse(await readFile(this.fileName, 'utf8'));
+        } catch (e) {
+            await writeFile(this.fileName, '[]', 'utf8')
+        }
     }
 
     //pobierz cala liste ofert
@@ -45,18 +49,17 @@ class Db {
         await writeFile(this.fileName, JSON.stringify(this._data));
     }
 
+    //usun oferte
     async deleteOffer(mainID) {
         const products = this._data.filter(oneClient => oneClient.mainID !== mainID);
 
         await writeFile(this.fileName, JSON.stringify(products));
     }
 
-    //dodaj produkty do istniejącej oferty - metoda przyjmuje id oraz obiekt, musi wiedziec ile jest lementów w tablicy products
+    //dodaj produkty
     async addProduct(mainID, obj) {
-        // metoda pobiera tablice produktow
         const products = this.getAllProductsFromOffer(mainID);
 
-        //tworzymy nowy obekt typu produkt
         const newProduct = {
             innerID: uuid(),
             ...obj,
@@ -64,39 +67,26 @@ class Db {
             quantity: Number(obj.quantity),
         }
 
-        //dodajemy do tablicy i zapisujemy do json obiekt data
         products.push(newProduct);
-        // console.log('wszyttkie', this.getAllData());
-        await writeFile(this.fileName, JSON.stringify(this.getAllOffers()));
+
+        await writeFile(this.fileName, JSON.stringify(this._data));
     }
 
     async removeProduct(mainID, productID) {
-        //ok
-        // pobierz tablice produktow z oferty, usun jeden element -> znajduje go metoda findPositioninProductsArray
-        const products = this.getAllProductsFromOffer(mainID).splice(this.findPositionInProductsArray(mainID, productID), 1);
-        await writeFile(this.fileName, JSON.stringify(this.getAllOffers()));
+        this.getAllProductsFromOffer(mainID).splice(this.findPositionInProductsArray(mainID, productID), 1);
+
+        await writeFile(this.fileName, JSON.stringify(this._data));
     }
 
 
-
-    //pobierz ilosc produktow ile obecnie jest w pojedynczej ofercie
-    howManyProductsContainsOffer(mainID) {
-        const qty = this.getAllProductsFromOffer(mainID);
-        return qty.length;
-    }
-
+    //sprawdz pozycje produktu w tablicy - do usuwania produktow
     findPositionInProductsArray(offerID, productID) {
-        // pobierz wszystkie produkty z oferty, znajdz index na postawie inner id, konweruje do number i zwroc
-        // const allProducts = this.getAllProductsFromOffer(offerID);
-        // const foundProduct = Number(allProducts.findIndex( product => product.innerID === productID));
-        // return foundProduct;
-
-        //refactor
         return Number((this.getAllProductsFromOffer(offerID)).findIndex(product => product.innerID === productID));
     }
 
-    refreshInnerID() {
-        //motoda przeladowujaca liste produktow po usunieciu
+    //sprawdz czy nie duplikujesz numeru oferty
+    checkOfferNumber(projectNumber) {
+        return this._data.map(obj => obj.projectNumber).some((item) => item === projectNumber);
     }
 }
 
