@@ -6,8 +6,8 @@
 
 /*ok - ustaw czarny na koniec*/
 body {
-    /*background-color: #000000;*/
-    background-color: #cccccc;
+    background-color: #000000;
+    height: 100vh;
     font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
@@ -28,14 +28,16 @@ body {
     margin-left: 20px;
     font-size: 0.8em;
 }
+
 /*ok*/
 .header img {
-    width: 37%;
+    /*width: 37%;*/
+    width: 45%;
     height: 40%;
 }
 
 /*ok*/
-#header-app-name{
+#header-app-name {
     font-size: 1.4em;
     position: absolute;
     left: 300px;
@@ -45,89 +47,76 @@ body {
 .header .company-address {
     margin-right: 20px;
 }
+
 /*ok*/
 .header h3 {
-    font-size: 0.6em;
+    font-size: 0.7em;
 }
 
-
-/*.main-footer {*/
-/*    position: absolute;*/
-/*    width: 100%;*/
-/*    left: 20px;*/
-/*    bottom: 0;*/
-/*    height: 30px;*/
-
-/*    text-align: center;*/
-/*}*/
-
-/*.main-footer > p {*/
-/*    line-height: 30px;*/
-/*}*/
-
-
-/* list-all.hbs*/
+/* Lista ofert/
 /* kontener - ok */
-.list-view{
+.list-view {
     margin: 20px 20px;
-    /*width: 100vw;*/
+    height: calc(100vh - 130px);
     min-width: 1024px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-/* flex z lewej z ofertami - column z opisem i tabelą - ok */
+/* flex z lewej góry z ofertami - column z opisem i tabelą - ok */
 .wrapper-offers {
-    /*width: 80vw;*/
-    height: calc(100vh - 130px);
+    width: 80vw;
+    /*height: calc(100vh - 130px);*/
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
 /*ok*/
-.wrapper-offers>h1{
+.important {
     margin-left: 20px;
+    color: white;
+    font-size: 28px;
 }
 
-/* flex z prawej z przyciskiem dodawania ofert */
-.aside-offers{
-    margin-top: 50px;
-    /*width: 20vw;*/
-    display: flex;
-    flex-direction: column;
+.information{
+margin-top: 20px;
 }
 
+/* flex z lewej u dolu z przyciskiem dodawania ofert */
+.div-offers {
+    margin: 20px 20px;
+}
 
-/*.offers-list-container {*/
-/*    margin-top: 20px;*/
-/*    !*width: 40%;*!*/
-/*}*/
-
+/*tabela z ofertami - ok*/
 .offers-list-table {
     margin: 20px 0 0 20px;
-    border: solid 2px black;
-    font-size: 28px;
+    border: solid 2px white;
+    font-size: 24px;
+    color: white;
     width: 100%;
 }
 
+/*naglowek tabeli*/
 thead {
-    background-color: ivory;
+    background-color: dimgrey;
 }
 
-.offer-form {
-    margin-top: 20px;
+/*cialo tabeli dla wydruku*/
+tbody {
+    text-align: left;
 }
 
-/* button-new-offer {
-    width: 200px;
-    margin: 30px 0 0 20px;
-}  */
+/*cialo tabeli dla ofert*/
+.table-offer{
+    text-align: center;
+}
 
+/*przycisk nowa oferta*/
 .button-new-offer button, .button-standard button {
-    background-color: #ffffff;
-    border: solid 2px black;
+    background-color: dimgrey;
+    border: solid 2px white;
     border-radius: 5px;
     padding: 7px;
     font-size: 22px;
@@ -136,32 +125,42 @@ thead {
 
 .button-new-offer button:hover, .button-standard button:hover {
     color: #ffffff;
-    background-color: firebrick;
+    background-color: red;
     cursor: progress;
 }
 
-/* list-one.hbs*/
+td a {
+    color: red;
+}
+
+td button {
+    background-color: dimgrey;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    transition: .5s;
+}
+
+/* Szczegóły oferty - ok*/
 .offer-single-container {
     width: 96%;
+    min-width: 1024px;
     margin: 20px 2%;
     text-align: left;
+    color: white;
 }
 
 .offer-single-header, .offer-single-products {
     margin: 20px 0 0 20px;
-    border: solid 2px black;
-    font-size: 28px;
-    /*z preview*/
+    border: solid 2px white;
+    font-size: 24px;
     width: 60%;
-    /*width: 100%; be z preview*/
 }
 
 .offer-single-header tr {
     display: flex;
-}
-
-.offer-single-header th, .offer-single-products th, .offer-single-products td {
-    border: 2px solid black;
+    text-align: center;
 }
 
 .offer-single-header th {
@@ -172,15 +171,9 @@ thead {
     text-align: center;
 }
 
-/*tbody td {*/
-/*    background-color: #ffffff;*/
-/*    text-align: center;*/
-/*    font-family: 'Roboto', sans-serif;*/
-/*}*/
-
 .offer-single-header th:nth-child(2n) {
     text-align: center;
-    color: firebrick;
+    color: red;
 }
 
 .id, .customer, .project {
@@ -191,15 +184,9 @@ thead {
     margin-top: 20px;
 }
 
-td button {
-    background-color: #ff9988;
-    width: 100%;
-    height: 50px;
-    transition: .5s;
-}
-
 td button:hover {
-    background-color: firebrick;
+    background-color: red;
+    border-color: white;
     cursor: pointer;
 }
 
@@ -212,27 +199,92 @@ td button:hover {
     margin-left: 8%;
 }
 
+form>.fix-margin{
+    margin-left: 0;
+}
+
+/* create-new-offer */
+.new-product-form{
+    min-width: 1024px;
+    margin: 30px 0 10px 20px;
+}
+
+.new-product-form input {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    width: 360px;
+    height: 30px;
+
+}
+.new-product-form p {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 10px;
+}
+
 
 /* go-home.hbs*/
 .home {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    top: 85px;
+    right: 10px;
 }
 
 .home a {
-    color: darkmagenta;
-    font-size: 22px;
-    transition: .5s;
+    display: inline-block;
+    text-decoration: none;
+    color: red;
 }
 
-/*a:hover {*/
-/*    color: red;*/
-/*    font-size: 28px;*/
-/*}*/
+.home a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background: red;
+    transition: width .4s ease-in;
+}
+
+.home a:hover::after {
+    width: 100%;
+}
+
+/*print-preview*/
+.print-preview-container{
+    display: flex;
+    flex-direction: row;
+    min-width: 1024px;
+}
+.print-section-buttons{
+    display:flex;
+    flex-direction: column;
+    margin: auto 0;
+    height: 200px;
+    width: 30%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.print-section-buttons button{
+    background-color: dimgrey;
+    border: solid 2px white;
+    width: 200px;
+    border-radius: 5px;
+    padding: 7px;
+    font-size: 22px;
+    transition: .4s;
+}
+
+.print-section-buttons button:hover{
+    color: #ffffff;
+    background-color: red;
+    cursor: progress;
+}
 
 
-/*invoice*/
+
+
 .invoice-box {
     max-width: 800px;
     margin: auto;
@@ -293,7 +345,6 @@ td button:hover {
 }
 
 .invoice-box table tr.total td:nth-child(2) {
-    border-top: 2px solid #eee;
     font-weight: bold;
 }
 
@@ -311,7 +362,12 @@ td button:hover {
     }
 }
 
-/** RTL **/
+/*oferta handlowa*/
+.invoice-box{
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+}
 .invoice-box.rtl {
     direction: rtl;
     font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -324,7 +380,17 @@ td button:hover {
 .invoice-box.rtl table tr td:nth-child(2) {
     text-align: left;
 }
+.description{
+    margin-top: 10px;
+}
+.description span{
+    font-weight: bold;
+}
+.top-section, .middle-section{
+    margin-bottom: 10px;
+}
 
+/* print */
 @media print {
     .invoice-box {
         max-width: unset;
@@ -332,10 +398,13 @@ td button:hover {
         border: 0px;
     }
 
-    .print-section-buttons {
+    .print-section-buttons, #header-app-name {
         display: none;
     }
+
 }
+
+
 
 
 

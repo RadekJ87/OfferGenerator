@@ -1,6 +1,6 @@
 <div class="list-view">
     <div class="wrapper-offers">
-        <h1>Lista ofert</h1>
+        <h1 class="important">Lista ofert</h1>
         <table class="offers-list-table">
             <thead>
             <tr>
@@ -12,7 +12,7 @@
                 <th>Usuń</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="table-offer">
             {{#each offers}}
                 <tr>
                     <td>{{listAllIndex @index}}</td>
@@ -30,11 +30,11 @@
             </tbody>
         </table>
     </div>
-    <aside class="aside-offers">
+    <div class="div-offers">
         <form class="button-new-offer" action="/offer/forms/create-new-offer" method="get">
             <button type="submit">Dodaj nową ofertę</button>
         </form>
-    </aside>
+    </div>
 </div>
 
 
