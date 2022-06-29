@@ -1,5 +1,6 @@
 const express = require('express');
 const {db} = require("../utils/db");
+const {generateError} = require("../utils/error");
 const offerRouter = express.Router();
 
 
@@ -22,7 +23,6 @@ offerRouter
     })
 
     //widok przejdz - pojedyncza oferta - podglad wydruku
-    // TODO - przycisk drukuj, tak aby nie byl widoczny
     .get('/:id/preview', (req, res) => {
         res.render('offer/print-preview', {
             offer: db.getSingleOffer(req.params.id),
@@ -83,6 +83,10 @@ offerRouter
     // dodanie nowej oferty
     .post('/', async (req, res) => {
         const {customerName, projectNumber} = req.body;
+
+        if(isNaN(Number(projectNumber))){
+            return generateError(res, `Numer oferty musi być liczbą składającą się z conajmniej 7 znaków a maksymalnie 10`);
+        }
         await db.createNewRFQ(req.body);
         res.render('offer/created', {
             projectNumber,

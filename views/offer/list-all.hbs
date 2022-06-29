@@ -1,5 +1,5 @@
-<div class="wrapper">
-    <div class="offers-list-container">
+<div class="list-view">
+    <div class="wrapper-offers">
         <h1 class="important">Lista ofert</h1>
         <table class="offers-list-table">
             <thead>
@@ -12,7 +12,7 @@
                 <th>Usuń</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="table-offer">
             {{#each offers}}
                 <tr>
                     <td>{{listAllIndex @index}}</td>
@@ -30,9 +30,11 @@
             </tbody>
         </table>
     </div>
-
+    <div class="div-offers">
+        <form class="button-new-offer" action="/offer/forms/create-new-offer" method="get">
+            <button type="submit">Dodaj nową ofertę</button>
+        </form>
+    </div>
 </div>
 
-<form class="button-new-offer" action="/offer/forms/create-new-offer" method="get">
-    <button type="submit">Dodaj nową ofertę</button>
-</form>
+

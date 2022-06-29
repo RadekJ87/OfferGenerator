@@ -14,15 +14,14 @@
     <table class="offer-single-products">
         <thead>
         <tr>
-            <th>Lp.</th>
+            <th>Numer</th>
             <th>Opis</th>
-            <th>Ilość</th>
+            <th>MOQ</th>
             <th>Cena</th>
             <th>Komentarz</th>
-<!--            <th>Akcja</th>-->
         </tr>
         </thead>
-        <tbody>
+        <tbody class="table-offer">
         {{#each products}}
             <tr>
                 <td>{{listAllIndex @index}}</td>
@@ -30,11 +29,6 @@
                 <td>{{this.quantity}}</td>
                 <td>{{this.price}} €/pc</td>
                 <td>{{this.comment}}</td>
-<!--                <td>-->
-<!--                    <form method="POST" action="/offer/{{../offer.mainID}}/{{this.innerID}}?_method=DELETE">-->
-<!--                        <button type="submit">Usuń</button>-->
-<!--                    </form>-->
-<!--                </td>-->
             </tr>
         {{/each}}
         </tbody>

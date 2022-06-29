@@ -1,11 +1,11 @@
-<h1>Dodaj nową ofertę</h1>
-<form action="/offer" method="POST">
+<h1 class="important information">Dodaj nową ofertę</h1>
+<form class="new-product-form button-standard" action="/offer" method="POST">
     <label>
         <p>
             Podaj numer projektu
         </p>
         <p>
-            <input type="number" name="projectNumber">
+            <input type="text" minlength="7" maxlength="10" name="projectNumber" required>
         </p>
     </label>
     <label>
@@ -13,7 +13,7 @@
             Nazwa klienta
         </p>
         <p>
-            <input type="text" name="customerName">
+            <input type="text" name="customerName" required>
         </p>
     </label>
     <label>
@@ -21,7 +21,7 @@
             Nazwa ulicy, numer budynku lub lokalu
         </p>
         <p>
-            <input type="text" name="streetAndNumber">
+            <input type="text" name="streetAndNumber" required>
         </p>
     </label>
     <label>
@@ -29,9 +29,9 @@
             Kod pocztowy, miejscowość
         </p>
         <p>
-            <input type="text" name="zipCodeAndCity">
+            <input type="text" name="zipCodeAndCity" required>
         </p>
     </label>
-    <button type="submit">Dodaj</button>
+    <button class="fix-margin" type="submit">Dodaj ofertę</button>
 </form>
 {{> go-home}}
