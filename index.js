@@ -25,11 +25,6 @@ app.set('view engine', '.hbs');
 app.use('/', homeRouter);
 app.use('/offer', offerRouter);
 
-app.get('/test', (req, res) => {
-    // res.send(db.getSingleData('1'));
-    res.send(db.getAllProductsFromOffer('1'));
-});
-
 
 app.listen(3000, 'localhost', () => {
     console.log('Listening on http://localhost:3000');

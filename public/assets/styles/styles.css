@@ -4,14 +4,12 @@
     box-sizing: border-box;
 }
 
-/*ok - ustaw czarny na koniec*/
 body {
     background-color: #000000;
     height: 100vh;
     font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
-/*ok*/
 .header {
     min-width: 1024px;
     position: relative;
@@ -23,38 +21,35 @@ body {
     align-items: center;
 }
 
-/*ok*/
 .header .company-logo {
     margin-left: 20px;
     font-size: 0.8em;
 }
 
-/*ok*/
+
 .header img {
-    /*width: 37%;*/
     width: 45%;
     height: 40%;
 }
 
-/*ok*/
+
 #header-app-name {
     font-size: 1.4em;
     position: absolute;
     left: 300px;
 }
 
-/*ok*/
+
 .header .company-address {
     margin-right: 20px;
 }
 
-/*ok*/
+
 .header h3 {
     font-size: 0.7em;
 }
 
-/* Lista ofert/
-/* kontener - ok */
+
 .list-view {
     margin: 20px 20px;
     height: calc(100vh - 130px);
@@ -64,7 +59,6 @@ body {
     justify-content: flex-start;
 }
 
-/* flex z lewej góry z ofertami - column z opisem i tabelą - ok */
 .wrapper-offers {
     width: 80vw;
     /*height: calc(100vh - 130px);*/
@@ -73,23 +67,20 @@ body {
     justify-content: flex-start;
 }
 
-/*ok*/
 .important {
     margin-left: 20px;
     color: white;
     font-size: 28px;
 }
 
-.information{
-margin-top: 20px;
+.information {
+    margin-top: 20px;
 }
 
-/* flex z lewej u dolu z przyciskiem dodawania ofert */
 .div-offers {
     margin: 20px 20px;
 }
 
-/*tabela z ofertami - ok*/
 .offers-list-table {
     margin: 20px 0 0 20px;
     border: solid 2px white;
@@ -98,22 +89,18 @@ margin-top: 20px;
     width: 100%;
 }
 
-/*naglowek tabeli*/
 thead {
     background-color: dimgrey;
 }
 
-/*cialo tabeli dla wydruku*/
 tbody {
     text-align: left;
 }
 
-/*cialo tabeli dla ofert*/
-.table-offer{
+.table-offer {
     text-align: center;
 }
 
-/*przycisk nowa oferta*/
 .button-new-offer button, .button-standard button {
     background-color: dimgrey;
     border: solid 2px white;
@@ -142,7 +129,6 @@ td button {
     transition: .5s;
 }
 
-/* Szczegóły oferty - ok*/
 .offer-single-container {
     width: 96%;
     min-width: 1024px;
@@ -199,12 +185,11 @@ td button:hover {
     margin-left: 8%;
 }
 
-form>.fix-margin{
+form > .fix-margin {
     margin-left: 0;
 }
 
-/* create-new-offer */
-.new-product-form{
+.new-product-form {
     min-width: 1024px;
     margin: 30px 0 10px 20px;
 }
@@ -217,14 +202,13 @@ form>.fix-margin{
     height: 30px;
 
 }
+
 .new-product-form p {
     font-size: 18px;
     color: white;
     margin-bottom: 10px;
 }
 
-
-/* go-home.hbs*/
 .home {
     position: absolute;
     top: 85px;
@@ -250,14 +234,14 @@ form>.fix-margin{
     width: 100%;
 }
 
-/*print-preview*/
-.print-preview-container{
+.print-preview-container {
     display: flex;
     flex-direction: row;
     min-width: 1024px;
 }
-.print-section-buttons{
-    display:flex;
+
+.print-section-buttons {
+    display: flex;
     flex-direction: column;
     margin: auto 0;
     height: 200px;
@@ -266,7 +250,7 @@ form>.fix-margin{
     justify-content: space-around;
 }
 
-.print-section-buttons button{
+.print-section-buttons button {
     background-color: dimgrey;
     border: solid 2px white;
     width: 200px;
@@ -276,14 +260,11 @@ form>.fix-margin{
     transition: .4s;
 }
 
-.print-section-buttons button:hover{
+.print-section-buttons button:hover {
     color: #ffffff;
     background-color: red;
     cursor: progress;
 }
-
-
-
 
 .invoice-box {
     max-width: 800px;
@@ -362,12 +343,12 @@ form>.fix-margin{
     }
 }
 
-/*oferta handlowa*/
-.invoice-box{
+.invoice-box {
     margin-top: 20px;
     background-color: white;
     color: black;
 }
+
 .invoice-box.rtl {
     direction: rtl;
     font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
@@ -380,13 +361,16 @@ form>.fix-margin{
 .invoice-box.rtl table tr td:nth-child(2) {
     text-align: left;
 }
-.description{
+
+.description {
     margin-top: 10px;
 }
-.description span{
+
+.description span {
     font-weight: bold;
 }
-.top-section, .middle-section{
+
+.top-section, .middle-section {
     margin-bottom: 10px;
 }
 
