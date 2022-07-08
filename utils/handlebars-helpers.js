@@ -3,7 +3,7 @@ const handlebarsHelpers ={
     getTotalSum: (products) => {
         let sum = products.reduce((acc, curr) => acc + curr.price*curr.quantity, 0);
 
-        return sum;
+        return Number(sum).toFixed(2);
     },
 };
 

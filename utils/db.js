@@ -1,4 +1,4 @@
-const {writeFile, readFile, appendFile} = require('fs').promises;
+const {writeFile, readFile} = require('fs').promises;
 const {v4: uuid} = require('uuid')
 const {join} = require('path');
 
@@ -84,10 +84,12 @@ class Db {
         return Number((this.getAllProductsFromOffer(offerID)).findIndex(product => product.innerID === productID));
     }
 
+
     //sprawdz czy nie duplikujesz numeru oferty
     checkOfferNumber(projectNumber) {
         return this._data.map(obj => obj.projectNumber).some((item) => item === projectNumber);
     }
+
 }
 
 const db = new Db('offers-list.json');
