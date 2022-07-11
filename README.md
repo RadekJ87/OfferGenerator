@@ -31,7 +31,7 @@ Po uruchomieniu wyświetla się główne okno aplikacji, w którym wyświetlają
 > -opis,
 > -ilość (MOQ - en. Minimum Order Quantity, czyli minmalna ilość zakupu, można podać kilka progów dla konkretnego produktu tworząc w ofercie progi cenowe np. dla 1/5/10 sztuk.)
 > -cenę,
-- nie musi posiadać komentarza, pole to jest dla menadzera, gdzie może on dodać krótka notatkę.
+- nie musi posiadać komentarza, pole to jest dla menadżera, gdzie może on dodać krótka notatkę.
 
 #### Szablon oferty
 - logo firmowe w lewym górnym rogu, prawy górny róg adres firmy,
@@ -39,5 +39,12 @@ Po uruchomieniu wyświetla się główne okno aplikacji, w którym wyświetlają
 - linia niżej to kolejno od lewej adres firmy i adres klienta,
 - lista ofert,
 - dodatkowe informacje dla klienta.
+
+
+#### Co dalej?
+
+ - na pewno baza danych, dodanie tabeli i modułu do definiowania klientów,
+ - refactor do TS,
+ - przede wszystkim edycja produktów a nie tylko usuwanie
 
 # Dziękuje i pozdrawiam!

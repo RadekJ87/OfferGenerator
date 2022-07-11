@@ -63,7 +63,7 @@ class Db {
         const newProduct = {
             innerID: uuid(),
             ...obj,
-            price: Number(obj.price),
+            price: Number(obj.price).toFixed(2),
             quantity: Number(obj.quantity),
         }
 
