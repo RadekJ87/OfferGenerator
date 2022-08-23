@@ -1,3 +1,7 @@
+<div position="center">
+<img src="./public/assets/images/company_logo.png">
+</div>
+
 # OfferGenerator
 
 
@@ -5,10 +9,16 @@ Cześć Kuba! Chciałbym przedstawić Ci bardzo prostą aplikację, która zrodz
 Otóż w od kilku lat pracuję na stanowisku menadżera projektu w bardzo fajnej, składającej się z młodych osób i dynamicznie rozwijającej się firmie Kordas ( dla jasności, mam zgodę zarządu na wykorzystanie nazwy firmy oraz logo na potrzeby kursu MegaK, aby aplikacja wyglądała tak jak została stworzona. Repozytorium będzie z powrotem prywatne od sierpnia ).  
 Działamy w branży obróbki stali, a dokładnie rzecz nazywająć produkujemy komponenty z blach stalowych, rur oraz profili. Jako menadżer niemal codziennie wysyłam oferty handlowe do naszych klientów, jak i firm zainteresowanych współpracą. Niestety, nasz system do zarządzania produkcją generuję na chwilę obecną mało estetyczne pliki arkuszy kalkulacyjnych, wyglądają wręcz archaicznie. Klient kupuję oczami, to prawdą z która każdy z Nas zmierzył się niejednokrotnie w życiu. Stąd chciałem, aby oferty które będę wysyłał do klientów były równie wysokiej jakości jak nasze wyroby. Oto rezultat!
 
+## Demo
 
+link do filmu
 ## Technologia
 
 Express.js + HandleBars
+
+## Dodatkowe paczki
+
+
 
 ##  Opis działania
 
@@ -41,10 +51,6 @@ Po uruchomieniu wyświetla się główne okno aplikacji, w którym wyświetlają
 - dodatkowe informacje dla klienta.
 
 
-#### Co dalej?
+#### Instalacja 
 
- - na pewno baza danych, dodanie tabeli i modułu do definiowania klientów,
- - refactor do TS,
- - przede wszystkim edycja produktów a nie tylko usuwanie
-
-# Dziękuje i pozdrawiam!
+#### Uruchamianie
