@@ -13,7 +13,7 @@ Działamy w branży obróbki stali, a dokładnie rzecz nazywając produkujemy ko
 
 ## Demo
 
-link do filmu
+[![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/RadekJ87/OfferGenerator/main/public/assets/images/readme_img.PNG)](https://youtu.be/yL0xIbkTV5w)
 
 ## Technologia
 
